@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+  }
+/*
+margin: 0; — يزيل المسافة الخارجية حول الصفحة.
+padding: 0; — يزيل المسافة الداخلية داخل الصفحة.
+font-family: Arial, sans-serif; — يحدد الخط المستخدم.
+background-color: #f8f8f8; — يضع خلفية رمادية فاتحة للصفحة.
+*/
+
+  header {
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+/*
+background-color: #f2f2f2; — خلفية الرأس بلون رمادي أفتح.
+padding: 10px 20px; — مسافة داخلية في الأعلى/الأسفل 10، وعلى الجانبين 20 بكسل.
+display: flex; — يجعل المحتوى أفقيًا (باستخدام Flexbox).
+align-items: center; — محاذاة عمودية للعناصر في الوسط.
+justify-content: space-between; — توزيع العناصر بحيث يكون هناك فراغ بينها.
+position: fixed; — يثبت الرأس في أعلى الصفحة.
+top: 0; — يضع الرأس على الحافة العلوية.
+width: 100%; — يجعل الرأس يعرض الصفحة بالكامل.
+z-index: 1000; — يجعل الرأس يظهر فوق العناصر الأخرى.
+box-shadow: ... — يضيف ظل بسيط للرأس لإبراز شكله.
+*/
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+/*
+font-size: 24px; — حجم الخط.
+font-weight: bold; — الخط عريض.
+*/
+  .search-bar {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+  }
+
+/*
+display: flex; — يجعل العناصر أفقية.
+align-items: center; — محاذاة عمودية.
+flex: 1; — يأخذ أكبر قدر ممكن من العرض.
+justify-content: center; — وضع شريط البحث في المنتصف.
+*/
+
+  .search-bar input[type="text"] {
+    width: 300px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 10px;
+  }
+
+/*
+width: 300px; — عرض حقل البحث.
+padding: 8px 12px; — مسافة داخلية.
+font-size: 16px; — حجم النص.
+border: 1px solid #ccc; — إطار بلون رمادي.
+border-radius: 4px; — زوايا مستديرة.
+margin-left: 10px; — مسافة يسارًا.
+*/
+
+  .search-bar select {
+    margin-left: 5px;
+    padding: 6px;
+  }
+
+/*
+margin-left: 5px; — مسافة يسارًا.
+padding: 6px; — مسافة داخلية.
+*/
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 25px; 
+  }
+
+/*
+display: flex; — ترتيب العناصر أفقيًا.
+gap: 10px; — فراغ بين العناصر.
+margin-right: 25px; — تقريبه من اليمين.
+*/
+  
+  .home-icon {
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+/*
+font-size: 20px; — حجم الأيقونة.
+cursor: pointer; — يظهر شكل اليد عند التمرير.
+*/
+  
+  .auth-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+/*
+display: flex; — ترتيب أزرار الدخول والتسجيل أفقيًا.
+gap: 10px; — مسافة بين الزرين.
+*/
+  
+  .auth-buttons button {
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: #e6e6e6;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+
+  .auth-buttons button:hover {
+    background-color: #d4d4d4;
+  }
+
+/*
+تصميم الزر بلون رمادي.
+تغير لونه عند تمرير الماوس.
+*/
+
+  .spacer {
+    height: 80px;
+  }
+
+/*
+عنصر وهمي لإعطاء فراغ أسفل الرأس الثابت
+*/
+  
+  main {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 60px;
+  }
+
+/*
+max-width: 500px; — عرض أقصى للنموذج.
+margin: 0 auto; — توسيطه.
+padding: 40px 20px; — مسافة داخلية.
+background-color: #fff; — خلفية بيضاء.
+box-shadow: ... — ظل خفيف.
+margin-top: 60px; — نزوله بعد الرأس الثابت.
+*/
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+/*
+text-align: center; — توسيط النص.
+margin-bottom: 30px; — مسافة بعد العنوان.
+*/
+  
+  form.signup-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+/*
+display: flex; + flex-direction: column; — عناصر النموذج عمودية.
+*/
+  
+  form.signup-form input[type="text"],
+  form.signup-form input[type="email"],
+  form.signup-form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+  }
+
+/*
+تنسيق جميع الحقول (نص، إيميل، كلمة مرور)
+*/
+  
+  form.signup-form button {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  form.signup-form button:hover {
+    background-color: #555;
+  }
+
+/*
+زر التسجيل بلون داكن ويتغير عند التمرير
+*/
+  
+  .terms {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 15px;
+  }
+  
+  .terms a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .terms a:hover {
+    text-decoration: underline;
+  }
+
+/*
+تنسيق فقرة الشروط مع رابط يظهر بلون أزرق ويتحول إلى تحت خط عند التمرير
+*/

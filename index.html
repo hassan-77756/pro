@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up Page</title>
+  <link rel="stylesheet" href="nm.css">
+  <script>
+    function toggleConditions() {
+      var x = document.getElementById("signup-conditions");
+      x.style.display = (x.style.display === "block") ? "none" : "block";
+    }
+    function goHome() {
+      window.location.href = 'index.html'; // غيّر المسار حسب الصفحة الرئيسية
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Site Logo" />
+    MyCourseSite
+  </div>
+  <div class="search-bar">
+    <form action="search.html" method="get">
+      <span>🔍</span>
+      <input type="text" name="q" placeholder="Search courses..." required>
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  <div class="nav-right">
+    <div class="home-icon" onclick="goHome()">
+      <svg class="home-svg" viewBox="0 0 24 24">
+        <path d="M3 10.5L12 4l9 6.5V20a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4H9v4a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V10.5z" />
+      </svg>
+    </div>
+    <div class="auth-buttons">
+      <button onclick="location.href='login.html'">Log in</button>
+      <button onclick="location.href='signup.html'">Sign up</button>
+    </div>
+  </div>
+</header>
+<div class="spacer"></div>
+
+<main>
+  <h2>Sign up form</h2>
+  <form class="signup-form" action="#" method="post" autocomplete="off">
+    <div style="display: flex; align-items: center;">
+      <input type="text" name="username" placeholder="Username" required>
+      <button type="button" class="help-btn" title="Show conditions" onclick="toggleConditions()">&#9432;</button>
+    </div>
+    <div id="signup-conditions" class="signup-conditions">
+      - اسم المستخدم: لا يقل عن 4 ولا يزيد عن 20 حرف، بدون رموز خاصة.<br>
+      - البريد الإلكتروني: بريد إلكتروني صحيح (example@email.com).<br>
+      - كلمة المرور: 8 خانات أو أكثر، تحتوي على حرف كبيرة وحرف صغيرة ورقم ورمز.
+    </div>
+    <input type="email" name="email" placeholder="Email" required pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+">
+    <input type="password" name="password" placeholder="Password" required minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$%\^&\*]).{8,}$">
+    <button type="submit">Sign up</button>
+  </form>
+  <div class="terms">
+    By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+  </div>
+</main>
+
+</body>
+</html>

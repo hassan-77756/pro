@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up Page</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="nm.css" />
+</head>
+<body>
+
+  <!-- header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">LOGO</div>
+
+      <div class="search-bar">
+        <form action="search.html" method="get" class="search-form">
+          <input type="text" name="q" class="search-input" placeholder="Search courses..." required />
+          <button type="submit" class="search-button" aria-label="Search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10 2a8 8 0 105.292 14.292l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <nav class="nav-right">
+        <button class="home-btn" onclick="location.href='index-home.html'" title="Home" aria-label="Home">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 3l9 7v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4H11v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10l9-7z"/>
+          </svg>
+        </button>
+
+        <div class="auth-buttons">
+          <button type="button" onclick="location.href='login.html'">Log in</button>
+          <button type="button" onclick="location.href='index-home.html'">Sign up</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- spacer -->
+  <div class="spacer"></div>
+
+  <!-- main -->
+  <main>
+    <h2>Sign up form</h2>
+
+    <form id="signup-form" class="signup-form" action="#" method="post" autocomplete="off">
+      
+      <!-- username -->
+      <div class="field">
+        <div class="field-top">
+          <label class="label" for="username">Username</label>
+          <span class="hint-wrap">
+            <button type="button" class="hint-btn hint-btn--square" aria-describedby="username-tip" aria-label="Username rules">?</button>
+            <span id="username-tip" class="tooltip tooltip--dark" role="tooltip">
+              4–20 letters or digits, no special characters
+            </span>
+          </span>
+        </div>
+        <input
+          id="username"
+          type="text"
+          name="username"
+          placeholder="Username"
+          required
+          minlength="4"
+          maxlength="20"
+          pattern="^[a-zA-Z0-9]{4,20}$"
+          aria-describedby="username-err"
+        />
+        <small id="username-err" class="error-text">Username must be 4–20 letters or digits (no symbols).</small>
+      </div>
+
+      <!-- email -->
+      <div class="field">
+        <div class="field-top">
+          <label class="label" for="email">Email</label>
+          <span class="hint-wrap">
+            <button type="button" class="hint-btn hint-btn--square" aria-describedby="email-tip" aria-label="Email rules">?</button>
+            <span id="email-tip" class="tooltip tooltip--dark" role="tooltip">
+              Use a valid email (name@example.com)
+            </span>
+          </span>
+        </div>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+          aria-describedby="email-err"
+        />
+        <small id="email-err" class="error-text">Please enter a valid email address.</small>
+      </div>
+
+      <!-- password -->
+      <div class="field">
+        <div class="field-top">
+          <label class="label" for="password">Password</label>
+          <span class="hint-wrap">
+            <button type="button" class="hint-btn hint-btn--square" aria-describedby="password-tip" aria-label="Password rules">?</button>
+            <span id="password-tip" class="tooltip tooltip--dark" role="tooltip">
+              8+ chars, include upper, lower, number, and special char (! @ # $ % ^ & * - _)
+            </span>
+          </span>
+        </div>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+          minlength="8"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$%\^&\*\-_])[A-Za-z\d!@#\$%\^&\*\-_]{8,}$"
+          aria-describedby="password-err"
+        />
+        <small id="password-err" class="error-text">Password must be 8+ and include upper, lower, number, and special char.</small>
+      </div>
+
+      <!-- submit -->
+      <div class="actions">
+        <button type="submit" class="submit-btn">Sign up</button>
+      </div>
+    </form>
+
+    <div class="terms">
+      By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+    </div>
+  </main>
+
+  <!-- ensure native validation blocks bad submits -->
+  <script>
+    const form = document.getElementById('signup-form');
+    form.addEventListener('submit', (e) => {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        form.reportValidity();
+      }
+    });
+  </script>
+</body>
+</html>

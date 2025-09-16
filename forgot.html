@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forgot password</title>
+  <link rel="stylesheet" href="forgot.css" />
+</head>
+<body>
+    <header class="site-header">
+  <div class="header-inner">
+    <a class="home-btn" href="home.html" aria-label="Home">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 3l9 7v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4H11v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10l9-7z"/>
+      </svg>
+    </a>
+
+    <div class="header-center">
+      <div class="logo">Smart Educational Library</div>
+    </div>
+
+    <nav class="nav-right">
+      <div class="search-bar">
+        <form action="search.html" method="get" class="search-form">
+          <input type="search" name="q" class="search-input" placeholder="Search..." required />
+          <button type="submit" class="search-button" aria-label="Search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10 2a8 8 0 105.292 14.292l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+      <a class="btn-link" href="index2.html">Log in</a>
+      <a class="btn-link" href="index.html">Sign up</a>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="spacer"></div>
+
+  <main>
+    <h2>Forgot password</h2>
+
+    <form id="request-form" class="forgot-form" action="/api/forgot" method="post" autocomplete="on">
+      <div class="field">
+        <div class="field-top">
+          <label class="label" for="username">Registered username</label>
+        </div>
+        <input id="username" type="text" name="username" placeholder="Your username" required minlength="4" maxlength="20" pattern="^[a-zA-Z0-9]{4,20}$" aria-describedby="user-err" inputmode="latin" />
+        <small id="user-err" class="error-text">4–20 letters or digits (no symbols).</small>
+      </div>
+
+      <div class="field">
+        <div class="field-top">
+          <label class="label" for="email">Active email</label>
+        </div>
+        <input id="email" type="email" name="email" placeholder="name@example.com" required aria-describedby="email-err" autocomplete="email" />
+        <small id="email-err" class="error-text">Enter a valid email address.</small>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="submit-btn">Send verification code</button>
+      </div>
+    </form>
+
+    <section id="verify-section" class="section" style="display:none;">
+      <div class="field">
+        <div class="field-top">
+          <label class="label">Enter verification code</label>
+        </div>
+        <div class="otp-row" role="group" aria-label="One-time passcode">
+          <input class="otp-input" type="text" inputmode="numeric" pattern="\d*" maxlength="1" aria-label="Digit 1">
+          <input class="otp-input" type="text" inputmode="numeric" pattern="\d*" maxlength="1" aria-label="Digit 2">
+          <input class="otp-input" type="text" inputmode="numeric" pattern="\d*" maxlength="1" aria-label="Digit 3">
+          <input class="otp-input" type="text" inputmode="numeric" pattern="\d*" maxlength="1" aria-label="Digit 4">
+          <input class="otp-input" type="text" inputmode="numeric" pattern="\d*" maxlength="1" aria-label="Digit 5">
+          <input class="otp-input" type="text" inputmode="numeric" pattern="\d*" maxlength="1" aria-label="Digit 6">
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="verify-btn" type="button" class="submit-btn">Verify code</button>
+      </div>
+    </section>
+
+    <section id="reset-section" class="section" style="display:none;">
+      <div class="field">
+        <div class="field-top">
+          <label class="label" for="newPass">New password</label>
+        </div>
+        <input id="newPass" type="password" placeholder="New password" required minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$" title="At least 8 chars including uppercase, lowercase, number, and special character." aria-describedby="newpass-err" autocomplete="new-password" />
+        <small id="newpass-err" class="error-text">Use 8+ chars with upper, lower, number, and special char.</small>
+      </div>
+
+      <div class="field">
+        <div class="field-top">
+          <label class="label" for="newPass2">Confirm password</label>
+        </div>
+        <input id="newPass2" type="password" placeholder="Confirm new password" required minlength="8" aria-describedby="newpass2-err" autocomplete="new-password" />
+        <small id="newpass2-err" class="error-text">Passwords must match.</small>
+      </div>
+
+      <div class="actions">
+        <button id="save-btn" type="button" class="submit-btn">Save new password</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    let mockCode=null;
+    const reqForm=document.getElementById('request-form');
+    const verifySection=document.getElementById('verify-section');
+    const resetSection=document.getElementById('reset-section');
+    function generateCode(){return Math.floor(100000+Math.random()*900000).toString()}
+    const otpInputs=()=>Array.from(document.querySelectorAll('.otp-input'));
+    function initOtp(){const a=otpInputs();a.forEach((i,x)=>{i.addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'').slice(0,1);if(e.target.value&&x<a.length-1)a[x+1].focus()});i.addEventListener('keydown',e=>{if(e.key==='Backspace'&&!e.target.value&&x>0)a[x-1].focus()})});a.addEventListener('paste',e=>{const d=(e.clipboardData||window.clipboardData).getData('text');if(!d)return;const g=d.replace(/\D/g,'').slice(0,a.length).split('');if(g.length){e.preventDefault();a.forEach((inp,k)=>inp.value=g[k]||'');const lf=Math.min(g.length,a.length)-1;if(lf>=0)a[lf].focus()}})}
+    initOtp();
+    reqForm.addEventListener('submit',e=>{if(!reqForm.checkValidity()){e.preventDefault();reqForm.reportValidity();return}e.preventDefault();mockCode=generateCode();verifySection.style.display='block';otpInputs().forEach(i=>i.value='');otpInputs().focus()});
+    document.getElementById('verify-btn').addEventListener('click',()=>{const c=otpInputs().map(i=>i.value).join('');if(c.length!==6)return;alert('Request rejected (demo). Connect backend to enable.')});
+    document.getElementById('save-btn').addEventListener('click',()=>{const p1=document.getElementById('newPass').value;const p2=document.getElementById('newPass2').value;const ok=document.getElementById('newPass').checkValidity();if(!ok){document.getElementById('newPass').reportValidity();return}if(p1!==p2){return}alert('Reset rejected (demo). Connect backend to enable.')});
+  </script>
+</body>
+</html>

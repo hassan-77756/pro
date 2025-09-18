@@ -1102,3 +1102,317 @@ html, body {
     padding-right: 12px;
   }
 }
+html, body, .page, .header-inner, .search-wrap {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+.role-cards, .bottom-grid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.role-card, .card.small {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  min-width: 280px;
+  max-width: 320px;
+}
+.header-inner, .search-wrap, .search-form {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+/* ========== Root Variables ========== */
+:root {
+  --bg: #f8f9fb;
+  --text: #222;
+  --muted: #616161;
+
+  --card: #fff;
+  --border: #e5e7eb;
+  --shadow: 0 6px 20px rgba(0,0,0,.06);
+
+  --brand: #007BFF;
+  --brand-700: #0056b3;
+
+  --blue: #2563eb;
+  --green: #16a34a;
+
+  --hover: #ededed;
+  --hover-dark: #cfcfcf;
+
+  --btn-gray-base: #e8e8ed;
+  --btn-gray-hover: #b0b0b4;
+  --btn-text-dark: #333;
+
+  --home-btn-bg: #e8f4ff;
+  --home-btn-hover: #a9c7ff;
+
+  --btn-border-base: rgba(0,0,0,0.10);
+  --btn-border-hover: rgba(0,0,0,0.18);
+}
+
+/* ========== Global Styles ========== */
+html, body, .page, .header-inner, .search-wrap {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ========== Header ========== */
+.site-header {
+  position: sticky;
+  top: 0; left: 0; right: 0;
+  background: #f2f2f2;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  flex-direction: row-reverse; /* RTL */
+  overflow-x: hidden !important;
+}
+
+/* ========== Buttons (Sign up / Log in) ========== */
+.auth-nav {
+  order: 1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* الأزرار الأساسية (.btn-sq) */
+.btn-sq, .home-btn {
+  min-width: 64px;
+  height: 38px;
+  border: 1px solid var(--btn-border-base);
+  background-color: var(--btn-gray-base);
+  color: var(--btn-text-dark);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+
+.btn-sq:hover,
+.btn-sq:focus,
+.home-btn:hover,
+.home-btn:focus {
+  background-color: var(--btn-gray-hover);
+  border-color: var(--btn-border-hover);
+  outline: none;
+}
+
+/* زر الرئيسية */
+.home-btn {
+  width: 38px;
+  height: 38px;
+  padding: 6px 4px;
+  background-color: var(--home-btn-bg);
+  box-shadow: inset 0 0 4px rgba(128,128,128,0.1);
+  border-radius: 8px;
+  fill: #007AFF;
+  transition: all 0.2s ease;
+}
+
+/* ========== Search ========== */
+.search-wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden !important;
+}
+
+.search-form {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--brand);
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-form:focus-within {
+  border-color: var(--brand-700);
+  box-shadow: 0 0 10px rgba(0, 86, 179, 0.67);
+}
+
+.search-input {
+  flex: 1 1 auto;
+  border: none;
+  height: 44px;
+  padding: 0 16px;
+  font-size: 16px;
+  outline: none;
+  color: #222;
+  text-align: right;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+  font-size: 15px;
+  opacity: 1;
+}
+
+.search-button {
+  width: 56px;
+  background-color: var(--brand);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover,
+.search-button:focus {
+  background-color: var(--brand-700);
+}
+
+.search-button svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+}
+
+/* ========== Page layout ========== */
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ========== Roles with Horizontal Scroll ========== */
+.role-cards {
+  display: flex;
+  gap: 12px;
+  padding-bottom: 8px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.role-card {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  min-width: 280px;
+  max-width: 320px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 34px 36px;
+  color: inherit;
+  text-align: right;
+  text-decoration: none;
+  transition: transform .15s ease, background .15s ease;
+  cursor: pointer;
+}
+
+.role-card:hover {
+  transform: translateY(-2px);
+  background: #f6f6f6;
+}
+
+/* ========== Bottom with Horizontal Scroll ========== */
+.bottom-area {
+  margin-top: 10px;
+  padding: 0 12px 56px;
+  overflow-x: hidden;
+}
+
+.bottom-grid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  max-width: 100%;
+}
+
+.card.small {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  min-width: 280px;
+  max-width: 320px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  color: inherit;
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    gap: 6px;
+  }
+  .btn-sq {
+    min-width: 56px;
+    height: 34px;
+    font-size: 12px;
+  }
+  .home-btn {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+  }
+  .search-form {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  .search-input {
+    height: 40px;
+    font-size: 14px;
+    padding: 0 10px;
+  }
+  .search-button {
+    width: 48px;
+    height: 40px;
+  }
+  .role-cards {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .bottom-grid {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}

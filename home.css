@@ -1039,3 +1039,66 @@ body {
     height: 34px;
   }
 }
+/* منع السكرول الأفقي العام للصفحة */
+html, body {
+  overflow-x: hidden; /* يمنع سكرول أفقي عام للصفحة */
+  max-width: 100vw;
+}
+
+/* محتوى الصفحة الرئيسي */
+.page {
+  overflow-x: hidden;
+}
+
+/* حاوية الكروت الرئيسية (مثل قسم role-cards) التي تستدعي تمرير أفقي فقط */
+.role-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 12px;
+  padding-bottom: 8px; /* لتجنب اختفاء الظل أو الحواف */
+  -webkit-overflow-scrolling: touch; /* سلاسة التمرير على أجهزة الآيفون */
+  scroll-snap-type: x mandatory;
+}
+
+.role-card {
+  scroll-snap-align: start;
+  flex: 0 0 auto; /* الحجم الثابت بالأفق */
+  min-width: 280px;
+  max-width: 320px;
+}
+
+/* نفس الشيء للشبكة السفلية إذا فيها تمرير أفقي */
+.bottom-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 12px;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.card.small {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  min-width: 280px;
+  max-width: 320px;
+}
+
+/* إصلاح محتوى البحث والهيدر لعدم السماح بتمرير جانبي */
+.header-inner,
+.search-wrap,
+.search-form {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* يمكن استخدام media query خاصة بالجوال لضبط الحاويات عند عرض ضيق */
+@media (max-width: 640px) {
+  .role-cards,
+  .bottom-grid {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}

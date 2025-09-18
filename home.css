@@ -1039,14 +1039,4 @@ body {
     height: 34px;
   }
 }
-.search-wrap {
-  padding-left: 0;
-  padding-right: 250px; /* زيادة المسافة باتجاه اليمين */
-}
-.row.social {
-  justify-content: flex-end; /* دفع الأيقونات إلى أقصى اليمين */
-  gap: 30px;
-  display: flex;
-  flex-wrap: nowrap;
-}
 

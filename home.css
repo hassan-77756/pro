@@ -1719,3 +1719,41 @@ body {
     padding-right: 12px;
   }
 }
+@media (max-width: 720px) {
+  /* role-cards عمودي بدلاً من أفقي */
+  .role-cards {
+    display: flex;
+    flex-direction: column;   /* ترتيب البطاقات عمودي */
+    overflow-y: auto;         /* سكرول عمودي */
+    overflow-x: hidden;       /* منع السكرول الأفقي */
+    gap: 12px;
+    padding-bottom: 8px;
+    scroll-snap-type: y mandatory; /* snap عمودي */
+  }
+
+  .role-card {
+    scroll-snap-align: start;
+    width: 100%;       /* البطاقة تمتد بعرض الحاوية */
+    max-width: 100%;
+    min-width: 0;      /* منع تجاوز العرض */
+    flex: 0 0 auto;    /* يمنع تغير الحجم */
+  }
+
+  /* bottom-grid عمودي */
+  .bottom-grid {
+    display: flex;
+    flex-direction: column; /* ترتيب الكروت عمودي */
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 12px;
+    scroll-snap-type: y mandatory;
+    max-width: 100%;
+  }
+
+  .card.small {
+    scroll-snap-align: start;
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+}

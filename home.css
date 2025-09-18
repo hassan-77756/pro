@@ -776,3 +776,176 @@ body, .lead, .role-title, .role-desc, .cta-title, .cta-desc {
   word-break: break-word;
   font-size: 1em;
 }
+/* --- إعداد الحاوية العامة لتكون scroll افقي وليس عمودي زائد منع أي تجاوز جانبي --- */
+body, html {
+  margin: 0; 
+  padding: 0;
+  overflow-x: hidden; /* منع أي تجاوز أفقى أو سكرول غير مرغوب */
+  overflow-y: auto; /* سكرول عمودي طبيعي للصفحة */
+}
+
+/* --- الحاوية الرئيسية مع scroll أفقي للكروت بالجزء المتوقع --- */
+.container {
+  max-width: 100vw !important; /* عرض الحاوية كعرض الشاشة بالضبط */
+  overflow-x: auto; /* سكرول أفقي إذا تخطت الكروت العرض */
+  overflow-y: hidden; /* منع سكرول عمودي داخل الحاوية */
+  padding: 8px 8px;
+  scroll-snap-type: x mandatory; /* لليقفز الطبيعي في التمرير الأفقي */
+  -webkit-overflow-scrolling: touch; /* سلاسة التمرير في الجوال */
+}
+
+/* --- شبكة البطاقات لتكون صف أفقي مع مرور أفقي (scroll) ---- */
+.role-cards {
+  display: flex !important; /* استخدام flex بدل grid لتسهيل التمرير الأفقي */
+  flex-wrap: nowrap; /* وضع البطاقات بجانب بعض بدون انكسار */
+  gap: 12px;
+  margin: 10px 0 24px;
+  max-width: 100vw;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+/* --- كل بطاقة كارت بسحب snap --- */
+.role-card {
+  scroll-snap-align: start;
+  flex: 0 0 auto;  /* حجم ثابت حسب المحتوى */
+  min-width: 280px;
+  max-width: 320px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  background: var(--card);
+  padding: 24px 22px;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease;
+  color: inherit;
+  text-align: right;
+}
+
+/* --- تصغير الشعار بشكل واضح --- */
+.brand-logo-circle {
+  width: 84px !important;
+  height: 84px !important;
+  margin-left: auto; /* التمركز على اليمين لأن الصفحة RTL */
+  margin-right: 0;
+  display: block;
+}
+
+/* --- جعل البحث والأزرار تمتد عبر العرض مع حشوات مناسبة --- */
+.header-inner {
+  max-width: 100vw !important;
+  padding: 6px 12px;
+  box-sizing: border-box;
+  gap: 6px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+/* --- البحث مع زر البحث بشكل مناسب وواسع --- */
+.search-wrap {
+  flex: 1 1 auto;
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* --- البحث input مع تكيف جيد --- */
+.search-form {
+  width: 100% !important;
+  min-width: 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* --- إصلاح أزرار الهيدر كون عرضها متناسق مع التصغير --- */
+.btn-sq {
+  min-width: 64px !important;
+  font-size: 13px !important;
+  padding: 4px 10px !important;
+}
+
+/* --- إصلاح زر الهوم --- */
+.home-btn {
+  width: 34px !important;
+  height: 34px !important;
+  padding: 4px !important;
+  border-radius: 8px !important;
+  box-shadow: inset 0 0 4px rgba(128, 128, 128, 0.10) !important;
+}
+
+/* --- صندوق التواصل والمعلومات في الأسفل يحتفظ بنفس العرض مع توزيع مناسب --- */
+.bottom-area {
+  max-width: 100vw;
+  padding: 0 12px 56px;
+  overflow-x: hidden;
+}
+
+/* --- شبكة البطاقات السفلية تبقى ثابتة أو صف واحد في الجوال --- */
+.bottom-grid {
+  display: flex !important;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 12px;
+}
+
+/* --- بطاقات التواصل والروابط في صف أفقي --- */
+.card.small {
+  flex: 0 0 auto;
+  min-width: 280px;
+  max-width: 320px;
+  box-sizing: border-box;
+  margin: 0;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+/* --- إزالة تكرار الهوامش الخارجة التي تسبب السكرول الجانبي --- */
+html, body, .page {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* --- تعيين النصوص داخل البطاقات بالاتجاه العربي RTL --- */
+body {
+  direction: rtl;
+  text-align: right;
+}
+.brand-logo-circle {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+.brand-logo-img {
+  width: 48px;         /* حجم صغير للجوال */
+  height: 48px;
+  aspect-ratio: 1;
+  border-radius: 8px;  /* اختياري لمظهر ناعم */
+  margin-left: 8px;    /* فاصل يسار لأن الصفحة RTL */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (max-width: 520px) {
+  .brand-logo-img {
+    width: 36px;
+    height: 36px;
+    margin-left: 4px;
+  }
+  .brand-logo-box {
+    margin-right: 2px;
+  }
+  .header-inner {
+    gap: 8px;
+  }
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse; /* لأن الصفحة RTL: اللوقو يمين ثم الأزرار يسار */
+  gap: 12px;
+}
+.brand-logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

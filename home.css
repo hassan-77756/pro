@@ -11,7 +11,6 @@
   --btn-text:#111;
 }
 
-/* تصفير عام وتقليل الفراغات */
 html, body { margin:0; padding:0 }
 body{
   font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg);
@@ -19,60 +18,61 @@ body{
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;
 }
 
-/* Header: محاذاة مضبوطة وفراغات أقل */
+/* Header */
 .site-header{position:sticky;top:0;left:0;right:0;background:#f2f2f2;box-shadow:var(--shadow);z-index:1000}
-.header-inner{max-width:1200px;margin:0 auto;padding:6px 12px;display:flex;align-items:center;gap:6px}
+.header-inner{
+  max-width:1200px;margin:0 auto;padding:6px 12px;
+  display:flex;align-items:center;gap:6px;flex-wrap:wrap
+}
 
-/* الأزرار الرمادية */
+/* Buttons: white default, gray on interaction only */
 .auth-nav{order:1;display:flex;gap:6px;align-items:center}
 .btn-sq{
   min-width:70px;height:40px;display:inline-flex;align-items:center;justify-content:center;
   font-size:13px;font-weight:700;letter-spacing:.2px;color:var(--btn-text);text-decoration:none;
-  background:var(--btn-gray);border:1px solid var(--gray-300);border-radius:10px;
-  transition:background .15s ease, border-color .15s ease, box-shadow .15s ease;
+  background:#fff;border:1px solid var(--gray-300);border-radius:10px;
+  transition:background .15s ease, border-color .15s ease, box-shadow .15s ease
 }
-.btn-sq:hover,.btn-sq:focus-visible{background:var(--btn-gray-hover);border-color:#c9c9c9;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+.btn-sq:hover,.btn-sq:focus,.btn-sq:active{background:var(--btn-gray)} /* رمادي عند التفاعل فقط */  /* [web:2] */
 
-/* زر الـ Home: خلفية رمادية + أيقونة زرقاء ثابتة */
+/* Home button: white bg + blue icon; gray on interaction */
 .home-btn{
-  order:2;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;
-  border:1px solid var(--gray-300);background:var(--btn-gray);border-radius:10px;
-  color:var(--btn-text);transition:background .15s ease, border-color .15s ease
+  order:2;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px; /* أكبر قليلًا */
+  border:1px solid var(--gray-300);background:#fff;border-radius:10px;transition:background .15s ease, border-color .15s ease
 }
-.home-btn svg{width:18px;height:18px;fill:var(--brand)} /* أزرق مثل قبل باستخدام var(--brand) */  /* [web:129] */
-.home-btn:hover,.home-btn:focus-visible{background:var(--btn-gray-hover);border-color:#c9c9c9}
+.home-btn svg{width:20px;height:20px;fill:var(--brand)}
+.home-btn:hover,.home-btn:focus,.home-btn:active{background:var(--btn-gray)} /* رمادي عند التفاعل فقط */  /* [web:2] */
 
 /* Search */
-.search-wrap{order:3;flex:1 1 auto;display:flex;justify-content:center;align-items:center}
+.search-wrap{order:3;flex:1 1 280px;display:flex;justify-content:center;align-items:center}
 .search-form{display:flex;align-items:center;width:min(560px,58%);background:#fff;border:1px solid var(--gray-300);border-radius:10px;overflow:hidden;margin:0 10px}
 .search-input{flex:1;min-width:0;height:38px;padding:0 12px;font-size:14px;border:none;outline:none;color:#333;text-align:right}
+.search-input::placeholder{color:#666;opacity:1} /* ظاهر وواضح */  /* [web:169] */
 .search-button{width:44px;height:38px;display:inline-flex;align-items:center;justify-content:center;background:var(--brand);border:none;cursor:pointer}
 .search-button svg{width:16px;height:16px;fill:#fff}
 
-/* شعار: دائرة واضحة بالحجم نفسه */
+/* Logo: responsive on mobile */
 .brand-left{order:4;margin-inline-start:auto;display:flex;align-items:center}
 .brand-logo-circle{
   width:176px;height:176px;border-radius:50%;
-  border:2px solid #fff;outline:1px solid #d4e9ff;
-  object-fit:cover;image-rendering:auto;background:#0000;box-shadow:0 2px 10px rgba(0,0,0,.08)
+  border:2px solid #fff;outline:1px solid #d4e9ff;object-fit:cover;background:#0000;box-shadow:0 2px 10px rgba(0,0,0,.08)
 }
 
-/* Layout */
+/* Page layout */
 .page{flex:1;display:flex;flex-direction:column}
 .container{max-width:1200px;margin:0 auto;padding:8px 16px}
 
-/* Hero: رفع النص وتقليل الفراغات */
+/* Hero */
 .hero{background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:10px;margin:6px 0 10px;text-align:center}
 .hero.tight{margin-top:2px}
 .hero h1{margin:0 0 2px;font-size:clamp(16px,1.4vw,19px);font-weight:800;line-height:1.25}
 .hero .lead{margin:0;color:var(--muted);font-size:clamp(12px,1.05vw,13.5px);line-height:1.5;font-weight:500}
 
-/* Roles: كلاهما رابط ومحاذاة موحدة */
+/* Roles */
 .role-cards{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(480px,1fr));
-  gap:16px;margin:10px auto 36px;justify-content:center;align-items:start;max-width:1120px
-} /* ضبط الاتساع عبر minmax لإتاحة تكبير خفيف للبطاقات */  /* [web:143] */
+  display:grid;grid-template-columns:repeat(2,minmax(480px,1fr));
+  gap:16px;margin:10px auto 24px;justify-content:center;align-items:start;max-width:1120px
+}
 .role-card{
   display:block;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
   padding:34px 36px;text-decoration:none;color:inherit;transition:transform .15s ease,background .15s ease;cursor:pointer
@@ -83,24 +83,37 @@ body{
 .role-card.student{order:1;border-inline-start:8px solid var(--blue);background:linear-gradient(0deg,rgba(37,99,235,.06),rgba(37,99,235,.06)),var(--card)}
 .role-card.teacher{order:2;border-inline-start:8px solid var(--green);background:linear-gradient(0deg,rgba(22,163,74,.06),rgba(22,163,74,.06)),var(--card)}
 
-/* Bottom: إنزال الأقسام أكثر للأسفل */
+/* CTA */
+.cta-section{max-width:1120px;margin:0 auto 24px}
+.cta-card{
+  display:block;text-decoration:none;background:var(--card);
+  border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
+  padding:20px 22px;color:inherit;transition:transform .15s ease, background .15s ease
+}
+.cta-card:hover{transform:translateY(-2px);background:linear-gradient(0deg,rgba(0,123,255,.06),rgba(0,123,255,.06)),var(--card)}
+.cta-title{font-weight:900;font-size:20px;margin:0 0 6px;text-align:right}
+.cta-desc{color:var(--muted);font-size:15px;margin:0 0 10px;text-align:right}
+.cta-action{display:inline-block;color:var(--brand);font-weight:800}
+
+/* Bottom */
 .bottom-area{margin-top:10px;padding:0 16px 56px}
 .bottom-grid{display:grid;grid-template-columns:repeat(2,minmax(400px,1fr));gap:16px;align-items:start;justify-content:center;max-width:1160px;margin:0 auto}
 
-/* Contact */
+/* Contact: fix social icon colors explicitly */
 .card.small{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:16px}
 .card.small h2{margin:0 0 8px;font-size:15px;font-weight:800}
 .contact-block{display:flex;flex-direction:column;gap:10px}
 .row{display:flex;align-items:center;gap:10px;flex-wrap:nowrap}
 .row.email,.row.phone{justify-content:flex-start}
-.icon{width:18px;height:18px;flex:0 0 18px;fill:currentColor;color:var(--brand)}
+.icon{width:18px;height:18px;flex:0 0 18px;color:var(--brand)} /* تستخدم color مع fill:currentColor ضمن svg الافتراضي */
+.row.email svg.icon path,.row.phone svg.icon path{fill:currentColor} /* ضمان اللون عبر currentColor */  /* [web:116] */
 .row.email span,.row.phone .phone-text{line-height:1}
 .phone-text{direction:ltr;unicode-bidi:bidi-override}
 
 /* Social icons */
 .row.social{justify-content:center;width:100%;margin-top:6px;gap:8px;flex-wrap:wrap}
 .social-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--gray-300);background:#fff;display:inline-flex;align-items:center;justify-content:center;transition:background .15s ease, border-color .15s ease}
-.social-btn svg{width:18px;height:18px;fill:#333}
+.social-btn svg{width:18px;height:18px}
 .social-btn.fb svg{fill:#1877f2}.social-btn.tw svg{fill:#111}.social-btn.yt svg{fill:#ff0000}
 .social-btn:hover{background:var(--hover-dark);border-color:#c9c9c9}
 
@@ -113,20 +126,18 @@ body{
 .link-a{display:inline-block;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--brand);transition:background .15s ease,color .15s ease}
 .link-a:hover,.link-a:focus-visible{background:var(--hover);color:var(--brand-700)}
 
-/* Footer: الكوبي رايت فقط */
+/* Footer */
 .site-footer{background:#f2f2f2;border-top:1px solid var(--border)}
 .footer-inner{max-width:1200px;margin:0 auto;padding:10px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center}
 .footer-inner .copyright{color:#555;font-size:13.5px}
 
-/* Responsive */
-@media (max-width:1100px){
-  .role-cards{grid-template-columns:1fr;max-width:680px}
-  .bottom-grid{grid-template-columns:1fr;max-width:640px}
-}
+/* Responsive adjustments */
 @media (max-width:640px){
   .header-inner{gap:6px}
-  .btn-sq{min-width:62px;height:38px;font-size:12.5px}
-  .home-btn{width:38px;height:38px}
-  .search-form{width:100%;margin:0 8px}
-  .brand-logo-circle{width:160px;height:160px}
+  /* mobile: square and close auth buttons, larger home */
+  .btn-sq{min-width:40px;width:40px;height:40px;font-size:12.5px} /* مربعة ومتقاربة */
+  .auth-nav{gap:6px}
+  .home-btn{width:44px;height:44px} /* أكبر قليلًا لظهور أوضح */
+  .search-form{width:100%;margin:8px 0}
+  .brand-logo-circle{max-width:32vw;height:auto} /* يمنع كسر التصميم للشعار */
 }

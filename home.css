@@ -1,143 +1,700 @@
-:root{
-  --bg:#f8f9fb; --text:#222; --muted:#616161;
-  --card:#fff; --border:#e5e7eb; --shadow:0 6px 20px rgba(0,0,0,.06);
-  --brand:#007BFF; --brand-700:#0056b3;
-  --blue:#2563eb; --green:#16a34a;
-  --hover:#ededed; --hover-dark:#cfcfcf;
-  --gray-200:#e5e7eb; --gray-300:#d1d5db;
+/* ========== Root Variables ========== */
+:root {
+  --bg: #f8f9fb;
+  --text: #222;
+  --muted: #616161;
 
-  --btn-gray:#e7e7e7;
-  --btn-gray-hover:#d9d9d9;
-  --btn-text:#111;
+  --card: #fff;
+  --border: #e5e7eb;
+  --shadow: 0 6px 20px rgba(0,0,0,.06);
+
+  --brand: #007BFF;
+  --brand-700: #0056b3;
+
+  --blue: #2563eb;
+  --green: #16a34a;
+
+  --hover: #ededed;
+  --hover-dark: #cfcfcf;
+
+  /* ألوان الأزرار */
+  --btn-gray-base: #e8e8ed;
+  --btn-gray-hover: #b0b0b4; /* رمادي أغمق للهوفير */
+  --btn-text-dark: #333;
+
+  --home-btn-bg: #e8f4ff;
+  --home-btn-hover: #a9c7ff; /* أزرق أغمق قليلاً للهوفير */
+
+  /* ألوان الحواف */
+  --btn-border-base: rgba(0,0,0,0.10);   /* حواف سوداء شفافة أخف */
+  --btn-border-hover: rgba(0,0,0,0.18);  /* حواف أغمق خفيف عند الهوفير */
 }
 
-html, body { margin:0; padding:0 }
-body{
-  font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg);
-  display:flex;flex-direction:column;line-height:1.55;
-  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;
+/* ========== Global Styles ========== */
+html, body {
+  margin: 0; padding: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Header */
-.site-header{position:sticky;top:0;left:0;right:0;background:#f2f2f2;box-shadow:var(--shadow);z-index:1000}
-.header-inner{
-  max-width:1200px;margin:0 auto;padding:6px 12px;
-  display:flex;align-items:center;gap:6px;flex-wrap:wrap
+/* ========== Header ========== */
+.site-header {
+  position: sticky;
+  top: 0; left: 0; right: 0;
+  background: #f2f2f2;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
-/* Buttons: white default, gray on interaction only */
-.auth-nav{order:1;display:flex;gap:6px;align-items:center}
-.btn-sq{
-  min-width:70px;height:40px;display:inline-flex;align-items:center;justify-content:center;
-  font-size:13px;font-weight:700;letter-spacing:.2px;color:var(--btn-text);text-decoration:none;
-  background:#fff;border:1px solid var(--gray-300);border-radius:10px;
-  transition:background .15s ease, border-color .15s ease, box-shadow .15s ease
-}
-.btn-sq:hover,.btn-sq:focus,.btn-sq:active{background:var(--btn-gray)} /* رمادي عند التفاعل فقط */  /* [web:2] */
-
-/* Home button: white bg + blue icon; gray on interaction */
-.home-btn{
-  order:2;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px; /* أكبر قليلًا */
-  border:1px solid var(--gray-300);background:#fff;border-radius:10px;transition:background .15s ease, border-color .15s ease
-}
-.home-btn svg{width:20px;height:20px;fill:var(--brand)}
-.home-btn:hover,.home-btn:focus,.home-btn:active{background:var(--btn-gray)} /* رمادي عند التفاعل فقط */  /* [web:2] */
-
-/* Search */
-.search-wrap{order:3;flex:1 1 280px;display:flex;justify-content:center;align-items:center}
-.search-form{display:flex;align-items:center;width:min(560px,58%);background:#fff;border:1px solid var(--gray-300);border-radius:10px;overflow:hidden;margin:0 10px}
-.search-input{flex:1;min-width:0;height:38px;padding:0 12px;font-size:14px;border:none;outline:none;color:#333;text-align:right}
-.search-input::placeholder{color:#666;opacity:1} /* ظاهر وواضح */  /* [web:169] */
-.search-button{width:44px;height:38px;display:inline-flex;align-items:center;justify-content:center;background:var(--brand);border:none;cursor:pointer}
-.search-button svg{width:16px;height:16px;fill:#fff}
-
-/* Logo: responsive on mobile */
-.brand-left{order:4;margin-inline-start:auto;display:flex;align-items:center}
-.brand-logo-circle{
-  width:176px;height:176px;border-radius:50%;
-  border:2px solid #fff;outline:1px solid #d4e9ff;object-fit:cover;background:#0000;box-shadow:0 2px 10px rgba(0,0,0,.08)
+/* ========== Buttons (Sign up / Log in) ========== */
+.auth-nav {
+  order: 1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
-/* Page layout */
-.page{flex:1;display:flex;flex-direction:column}
-.container{max-width:1200px;margin:0 auto;padding:8px 16px}
-
-/* Hero */
-.hero{background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:10px;margin:6px 0 10px;text-align:center}
-.hero.tight{margin-top:2px}
-.hero h1{margin:0 0 2px;font-size:clamp(16px,1.4vw,19px);font-weight:800;line-height:1.25}
-.hero .lead{margin:0;color:var(--muted);font-size:clamp(12px,1.05vw,13.5px);line-height:1.5;font-weight:500}
-
-/* Roles */
-.role-cards{
-  display:grid;grid-template-columns:repeat(2,minmax(480px,1fr));
-  gap:16px;margin:10px auto 24px;justify-content:center;align-items:start;max-width:1120px
+/* الأزرار الأساسية (.btn-sq) مع تصغير وتقليل الحواف */
+.btn-sq, .home-btn {
+  min-width: 68px;
+  height: 38px;
+  border: 1px solid var(--btn-border-base);
+  background-color: var(--btn-gray-base);
+  box-shadow: inset 0 0 4px rgba(128,128,128,0.10);
+  color: var(--btn-text-dark);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important; /* إزالة الخط السفلي */
+  transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+  outline: none;
 }
-.role-card{
-  display:block;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
-  padding:34px 36px;text-decoration:none;color:inherit;transition:transform .15s ease,background .15s ease;cursor:pointer
+
+/* تأثير الهوفر والتركيز */
+.btn-sq:hover,
+.btn-sq:focus,
+.home-btn:hover,
+.home-btn:focus {
+  background-color: var(--btn-gray-hover);
+  border-color: var(--btn-border-hover);
+  box-shadow: inset 0 0 6px rgba(100,100,100,0.2);
+  outline: none;
 }
-.role-card:hover{transform:translateY(-2px);background:#f6f6f6}
-.role-card .role-title{font-weight:900;margin-bottom:8px;font-size:21px;line-height:1.25;text-align:right}
-.role-card .role-desc{color:var(--muted);font-size:16px;line-height:1.8;text-align:right}
-.role-card.student{order:1;border-inline-start:8px solid var(--blue);background:linear-gradient(0deg,rgba(37,99,235,.06),rgba(37,99,235,.06)),var(--card)}
-.role-card.teacher{order:2;border-inline-start:8px solid var(--green);background:linear-gradient(0deg,rgba(22,163,74,.06),rgba(22,163,74,.06)),var(--card)}
 
-/* CTA */
-.cta-section{max-width:1120px;margin:0 auto 24px}
-.cta-card{
-  display:block;text-decoration:none;background:var(--card);
-  border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
-  padding:20px 22px;color:inherit;transition:transform .15s ease, background .15s ease
+/* تأثير التركيز فقط */
+.btn-sq:focus-visible,
+.home-btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(0,123,255,0.25),
+    inset 0 0 10px rgba(100,100,100,0.3);
 }
-.cta-card:hover{transform:translateY(-2px);background:linear-gradient(0deg,rgba(0,123,255,.06),rgba(0,123,255,.06)),var(--card)}
-.cta-title{font-weight:900;font-size:20px;margin:0 0 6px;text-align:right}
-.cta-desc{color:var(--muted);font-size:15px;margin:0 0 10px;text-align:right}
-.cta-action{display:inline-block;color:var(--brand);font-weight:800}
 
-/* Bottom */
-.bottom-area{margin-top:10px;padding:0 16px 56px}
-.bottom-grid{display:grid;grid-template-columns:repeat(2,minmax(400px,1fr));gap:16px;align-items:start;justify-content:center;max-width:1160px;margin:0 auto}
+/* زر الرئيسية (home-btn) مع تصغير الأيقونة وتقليل الحواف */
+.home-btn {
+  width: 38px;
+  height: 38px;
+  padding: 6px; /* تقليل الحواف حول الأيقونة */
+  box-sizing: border-box;
+  border: 1px solid var(--btn-border-base);
+  border-radius: 12px;
+  background-color: var(--home-btn-bg);
+  box-shadow: inset 0 0 4px rgba(128,128,128,0.10);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s ease;
+}
+.home-btn:hover,
+.home-btn:focus {
+  background-color: var(--home-btn-hover);
+  border-color: var(--btn-border-hover);
+  box-shadow: inset 0 0 6px rgba(100,100,100,0.2);
+  outline: none;
+}
+.home-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: #007AFF;
+}
 
-/* Contact: fix social icon colors explicitly */
-.card.small{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:16px}
-.card.small h2{margin:0 0 8px;font-size:15px;font-weight:800}
-.contact-block{display:flex;flex-direction:column;gap:10px}
-.row{display:flex;align-items:center;gap:10px;flex-wrap:nowrap}
-.row.email,.row.phone{justify-content:flex-start}
-.icon{width:18px;height:18px;flex:0 0 18px;color:var(--brand)} /* تستخدم color مع fill:currentColor ضمن svg الافتراضي */
-.row.email svg.icon path,.row.phone svg.icon path{fill:currentColor} /* ضمان اللون عبر currentColor */  /* [web:116] */
-.row.email span,.row.phone .phone-text{line-height:1}
-.phone-text{direction:ltr;unicode-bidi:bidi-override}
+/* ضمان عدم وجود خط تحتي في الروابط التي تستخدم كلاسات الأزرار */
+a.btn-sq, a.home-btn {
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
 
-/* Social icons */
-.row.social{justify-content:center;width:100%;margin-top:6px;gap:8px;flex-wrap:wrap}
-.social-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--gray-300);background:#fff;display:inline-flex;align-items:center;justify-content:center;transition:background .15s ease, border-color .15s ease}
-.social-btn svg{width:18px;height:18px}
-.social-btn.fb svg{fill:#1877f2}.social-btn.tw svg{fill:#111}.social-btn.yt svg{fill:#ff0000}
-.social-btn:hover{background:var(--hover-dark);border-color:#c9c9c9}
+/* تحسين overflow لظهور الظلال والحواف */
+.header-inner,
+.auth-nav {
+  overflow: visible;
+}
 
-/* Links */
-.links-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto auto;gap:8px}
-.pos-1{grid-column:2;grid-row:1}
-.pos-2{grid-column:1;grid-row:1}
-.pos-3{grid-column:2;grid-row:2}
-.pos-4{grid-column:1;grid-row:2}
-.link-a{display:inline-block;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--brand);transition:background .15s ease,color .15s ease}
-.link-a:hover,.link-a:focus-visible{background:var(--hover);color:var(--brand-700)}
+/* ========== Search ========== */
+.search-wrap {
+  order: 3;
+  flex: 1 1 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-form {
+  display: flex;
+  align-items: center;
+  width: min(560px, 58%);
+  background: #fff;
+  border: 1px solid var(--gray-300);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 10px;
+}
+.search-input {
+  flex: 1;
+  min-width: 0;
+  height: 38px;
+  padding: 0 12px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  color: #333;
+  text-align: right;
+}
+.search-input::placeholder {
+  color: #666;
+  opacity: 1;
+}
+.search-button {
+  width: 44px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand);
+  border: none;
+  cursor: pointer;
+}
+.search-button svg {
+  width: 16px;
+  height: 16px;
+  fill: #fff;
+}
 
-/* Footer */
-.site-footer{background:#f2f2f2;border-top:1px solid var(--border)}
-.footer-inner{max-width:1200px;margin:0 auto;padding:10px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center}
-.footer-inner .copyright{color:#555;font-size:13.5px}
+/* ========== Logo ========== */
+.brand-left {
+  order: 4;
+  margin-inline-start: auto;
+  display: flex;
+  align-items: center;
+}
+.brand-logo-circle {
+  width: 176px;
+  height: 176px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  outline: 1px solid #d4e9ff;
+  object-fit: cover;
+  background: #0000;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
 
-/* Responsive adjustments */
-@media (max-width:640px){
-  .header-inner{gap:6px}
-  /* mobile: square and close auth buttons, larger home */
-  .btn-sq{min-width:40px;width:40px;height:40px;font-size:12.5px} /* مربعة ومتقاربة */
-  .auth-nav{gap:6px}
-  .home-btn{width:44px;height:44px} /* أكبر قليلًا لظهور أوضح */
-  .search-form{width:100%;margin:8px 0}
-  .brand-logo-circle{max-width:32vw;height:auto} /* يمنع كسر التصميم للشعار */
+/* ========== Page layout ========== */
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 16px;
+}
+
+/* ========== Hero ========== */
+.hero {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 10px;
+  margin: 6px 0 10px;
+  text-align: center;
+}
+.hero.tight {
+  margin-top: 2px;
+}
+.hero h1 {
+  margin: 0 0 2px;
+  font-size: clamp(16px, 1.4vw, 19px);
+  font-weight: 800;
+  line-height: 1.25;
+}
+.hero .lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(12px, 1.05vw, 13.5px);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* ========== Roles ========== */
+.role-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(480px, 1fr));
+  gap: 16px;
+  margin: 10px auto 24px;
+  justify-content: center;
+  align-items: start;
+  max-width: 1120px;
+}
+.role-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 34px 36px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .15s ease, background .15s ease;
+  cursor: pointer;
+}
+.role-card:hover {
+  transform: translateY(-2px);
+  background: #f6f6f6;
+}
+.role-card .role-title {
+  font-weight: 900;
+  margin-bottom: 8px;
+  font-size: 21px;
+  line-height: 1.25;
+  text-align: right;
+}
+.role-card .role-desc {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: right;
+}
+.role-card.student {
+  order: 1;
+  border-inline-start: 8px solid var(--blue);
+  background: linear-gradient(0deg, rgba(37,99,235,.06), rgba(37,99,235,.06)), var(--card);
+}
+.role-card.teacher {
+  order: 2;
+  border-inline-start: 8px solid var(--green);
+  background: linear-gradient(0deg, rgba(22,163,74,.06), rgba(22,163,74,.06)), var(--card);
+}
+
+/* ========== CTA ========== */
+.cta-section {
+  max-width: 1120px;
+  margin: 0 auto 24px;
+}
+.cta-card {
+  display: block;
+  text-decoration: none;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 20px 22px;
+  color: inherit;
+  transition: transform .15s ease, background .15s ease;
+}
+.cta-card:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(0deg, rgba(0,123,255,.06), rgba(0,123,255,.06)), var(--card);
+}
+.cta-title {
+  font-weight: 900;
+  font-size: 20px;
+  margin: 0 0 6px;
+  text-align: right;
+}
+.cta-desc {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0 0 10px;
+  text-align: right;
+}
+.cta-action {
+  display: inline-block;
+  color: var(--brand);
+  font-weight: 800;
+}
+
+/* ========== Bottom ========== */
+.bottom-area {
+  margin-top: 10px;
+  padding: 0 16px 56px;
+}
+.bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(400px, 1fr));
+  gap: 16px;
+  align-items: start;
+  justify-content: center;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ========== Contact ========== */
+.card.small {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+.card.small h2 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 800;
+}
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+.row.email,
+.row.phone {
+  justify-content: flex-start;
+}
+.icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  color: var(--brand);
+}
+.row.email svg.icon path,
+.row.phone svg.icon path {
+  fill: currentColor;
+}
+.row.email span,
+.row.phone .phone-text {
+  line-height: 1;
+}
+.phone-text {
+  direction: ltr;
+  unicode-bidi: bidi-override;
+}
+
+/* ========== Social icons ========== */
+.row.social {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 8px;
+}
+@media (max-width: 480px) {
+  .row.social {
+    justify-content: flex-start;
+  }
+}
+
+/* ========== Social buttons ========== */
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  outline: none;
+}
+.social-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ألوان السوشيال ميديا حسب الكلاسات */
+.social-btn.fb {
+  background: #1877f2;
+}
+.social-btn.fb svg {
+  fill: white;
+}
+.social-btn.fb:hover {
+  background: #166fe5;
+}
+.social-btn.tw {
+  background: #000000;
+}
+.social-btn.tw svg {
+  fill: white;
+}
+.social-btn.tw:hover {
+  background: #333333;
+}
+.social-btn.yt {
+  background: #ff0000;
+}
+.social-btn.yt svg {
+  fill: white;
+}
+.social-btn.yt:hover {
+  background: #cc0000;
+}
+.social-btn.ig {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+.social-btn.ig svg {
+  fill: white;
+}
+.social-btn.ig:hover {
+  opacity: 0.9;
+}
+
+/* ========== Links ========== */
+.links-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  gap: 8px;
+}
+.pos-1 {
+  grid-column: 2;
+  grid-row: 1;
+}
+.pos-2 {
+  grid-column: 1;
+  grid-row: 1;
+}
+.pos-3 {
+  grid-column: 2;
+  grid-row: 2;
+}
+.pos-4 {
+  grid-column: 1;
+  grid-row: 2;
+}
+.link-a {
+  display: inline-block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--brand);
+  transition: background .15s ease, color .15s ease;
+}
+.link-a:hover,
+.link-a:focus-visible {
+  background: var(--hover);
+  color: var(--brand-700);
+}
+
+/* ========== Footer ========== */
+.site-footer {
+  background: #f2f2f2;
+  border-top: 1px solid var(--border);
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-align: center;
+}
+
+/* ========== Responsive adjustments ========== */
+@media (max-width: 640px) {
+  .header-inner {
+    gap: 8px;
+  }
+  .btn-sq {
+    min-width: 62px;
+    height: 34px;
+    font-size: 12px;
+  }
+  .auth-nav {
+    gap: 6px;
+  }
+  .home-btn {
+    width: 34px;
+    height: 34px;
+  }
+  .search-form {
+    width: 100%;
+    margin: 8px 0;
+  }
+  .brand-logo-circle {
+    max-width: 32vw;
+    height: auto;
+  }
+}
+/* إعادة زر الهوم إلى الترتيب السابق */
+.home-btn {
+  order: 2; /* مكانه الطبيعي */
+  
+  width: 38px;          /* الحجم بعد التصغير */
+  height: 38px;
+  padding: 6px;         /* تقليل الحواف الداخلية */
+  
+  border: 1px solid rgba(0,0,0,0.1);   /* حواف خفيفة جداً */
+  border-radius: 6px;   /* أقرب للمربع مع انحناء بسيط */
+  
+  background-color: var(--home-btn-bg);
+  box-shadow: inset 0 0 4px rgba(128,128,128,0.1); /* ظل داخلي خفيف */
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  transition: all 0.2s ease;
+}
+
+.home-btn:hover,
+.home-btn:focus {
+  background-color: var(--home-btn-hover);
+  border-color: rgba(0,0,0,0.18);    /* حواف خفيفة لكن أوضح عند الهوفير */
+  box-shadow: inset 0 0 6px rgba(100,100,100,0.2);
+  outline: none;
+}
+
+.home-btn svg {
+  width: 16px;  /* تصغير الأيقونة قليلًا */
+  height: 16px;
+  fill: #007AFF;
+}
+.home-btn {
+  order: 2;
+  
+  width: 38px;
+  height: 38px;
+  padding: 0;                  /* إزالة الحشو الداخلي */
+  
+  border: 1px solid rgba(0,0,0,0.12);  /* حواف خفيفة جداً */
+  border-radius: 4px;          /* أقل نصف قطر لمظهر مربع بسيط */
+  
+  background-color: var(--home-btn-bg);
+  box-shadow: none;            /* إزالة الظل الداخلي لجعل الشكل أبسط */
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  transition: all 0.2s ease;
+}
+
+.home-btn:hover,
+.home-btn:focus {
+  background-color: var(--home-btn-hover);
+  border-color: rgba(0,0,0,0.25);  /* حواف مظللة قليلاً عند التمرير */
+  box-shadow: none;
+  outline: none;
+}
+
+.home-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: #007AFF;
+}
+.home-btn {
+  order: 2;
+
+  width: 38px;               /* الحجم السابق */
+  height: 38px;
+  padding: 6px;              /* حشو مناسب بدون زيادة الحواف */
+  
+  border: 1px solid rgba(0,0,0,0.08);  /* حواف أخف وأقل وضوح */
+  border-radius: 8px;        /* تقليل الانحناء لتكون أقرب لمربع لكن ناعمة */
+  
+  background-color: var(--home-btn-bg);
+  box-shadow: inset 0 0 3px rgba(128,128,128,0.08); /* ظل داخلي خفيف جدًا */
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  transition: all 0.2s ease;
+}
+
+.home-btn:hover,
+.home-btn:focus {
+  background-color: var(--home-btn-hover);
+  border-color: rgba(0,0,0,0.18);
+  box-shadow: inset 0 0 5px rgba(100,100,100,0.15);
+  outline: none;
+}
+
+.home-btn svg {
+  width: 18px;      /* رجعت حجم الأيقونة كما هو */
+  height: 18px;
+  fill: #007AFF;
+}
+.home-btn {
+  order: 2;
+
+  width: 38px;             /* نفس ارتفاع وعرض الزر */
+  height: 38px;
+  padding: 6px 4px;        /* 6 بكسل عمودي و4 بكسل أفقي لتقليل الحواف الجانبية */
+  
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  
+  background-color: var(--home-btn-bg);
+  box-shadow: inset 0 0 4px rgba(128,128,128,0.1);
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  transition: all 0.2s ease;
+}
+
+.home-btn:hover,
+.home-btn:focus {
+  background-color: var(--home-btn-hover);
+  border-color: rgba(0,0,0,0.18);
+  box-shadow: inset 0 0 6px rgba(100,100,100,0.2);
+  outline: none;
+}
+
+.home-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: #007AFF;
 }

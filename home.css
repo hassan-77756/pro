@@ -1416,3 +1416,28 @@ body {
     padding-right: 12px;
   }
 }
+/* ========== Global overflow control to prevent unwanted horizontal scroll ========== */
+html, body, .page, .header-inner, .search-wrap {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden !important; /* يمنع السكرول الجانبي */
+  max-width: 100vw !important;
+}
+
+/* ========== Role cards and bottom grid scroll only ========= */
+.role-cards, .bottom-grid {
+  display: flex !important;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px; /* فراغ للمظهر الحلو */
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.role-card, .card.small {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  min-width: 280px;
+  max-width: 320px;
+}

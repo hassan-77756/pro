@@ -698,3 +698,81 @@ a.btn-sq, a.home-btn {
   height: 18px;
   fill: #007AFF;
 }
+/* ========== تحسين شبكة كروت الأدوار/القسم Role Cards للجوال ========== */
+@media (max-width: 720px) {
+  .role-cards {
+    grid-template-columns: 1fr;        /* عمود واحد بالكارت */
+    gap: 10px;
+    padding: 0 4px;
+    max-width: 100%;
+  }
+  .role-card {
+    padding: 24px 14px;                /* كوين الحواف أصغر */
+    font-size: 15px;
+    min-width: 0;
+  }
+}
+
+/* ========== تحسين شبكة أسفل الصفحة للجوال ========== */
+@media (max-width: 720px) {
+  .bottom-grid {
+    grid-template-columns: 1fr;        /* عمود واحد فقط بالكروت */
+    gap: 10px;
+    max-width: 100%;
+  }
+  .card.small {
+    padding: 12px 8px;
+    min-width: 0;
+  }
+}
+
+/* ========== تصغير الشعار والصورة ========== */
+@media (max-width: 480px) {
+  .brand-logo-circle {
+    width: 78px !important;
+    height: 78px !important;
+    min-width: 0;
+  }
+}
+
+/* ========== تصغير أزرار الهيدر وتراصها بشكل صحيح ========== */
+@media (max-width: 480px) {
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 6px 4px;
+  }
+  .btn-sq,
+  .home-btn {
+    min-width: 48px;
+    height: 32px;
+    font-size: 11px;
+    padding: 0 5px;
+    border-radius: 8px;
+  }
+  .search-form {
+    width: 100%;
+    margin: 4px 0;
+    border-radius: 8px;
+  }
+}
+
+/* ========== تصغير أيقونات مواقع التواصل بشكل مربع واضح ========== */
+.row.social {
+  justify-content: flex-end !important;     /* لأقصى اليمين */
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.social-btn {
+  width: 33px;
+  height: 33px;
+  border-radius: 7px;
+  margin: 0 1.5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* ========== معالجة النصوص والصيغ بالتوافق للجوال ========== */
+body, .lead, .role-title, .role-desc, .cta-title, .cta-desc {
+  word-break: break-word;
+  font-size: 1em;
+}

@@ -1,95 +1,132 @@
 :root{
-  --bg:#f8f9fb; --text:#222; --muted:#555;
+  --bg:#f8f9fb; --text:#222; --muted:#616161;
   --card:#fff; --border:#e5e7eb; --shadow:0 6px 20px rgba(0,0,0,.06);
   --brand:#007BFF; --brand-700:#0056b3;
-  --blue:#2563eb; --blue-700:#1d4ed8;
-  --green:#16a34a; --green-700:#15803d;
+  --blue:#2563eb; --green:#16a34a;
+  --hover:#ededed; --hover-dark:#cfcfcf;
+  --gray-200:#e5e7eb; --gray-300:#d1d5db;
+
+  --btn-gray:#e7e7e7;
+  --btn-gray-hover:#d9d9d9;
+  --btn-text:#111;
 }
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column}
 
-/* Header layout in visual order (RTL doc): auth -> home -> center search -> brand left */
-.site-header{position:fixed;top:0;left:0;right:0;background:#f2f2f2;box-shadow:var(--shadow);z-index:10}
-.header-inner{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:12px}
-.auth-nav{display:flex;gap:8px;order:1}
-.btn-link{display:inline-block;padding:8px 14px;font-size:14px;font-weight:700;background:#e6e6e6;border:1px solid var(--border);border-radius:8px;color:#000;text-decoration:none}
-.btn-link:hover{background:#d4d4d4}
-.btn-link.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
-.btn-link.primary:hover{background:var(--brand-700)}
+/* تصفير عام وتقليل الفراغات */
+html, body { margin:0; padding:0 }
+body{
+  font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg);
+  display:flex;flex-direction:column;line-height:1.55;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;
+}
 
-.home-btn{order:2;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--border);background:#fff;border-radius:8px;text-decoration:none}
-.home-btn svg{width:22px;height:22px;fill:var(--brand)}
+/* Header: محاذاة مضبوطة وفراغات أقل */
+.site-header{position:sticky;top:0;left:0;right:0;background:#f2f2f2;box-shadow:var(--shadow);z-index:1000}
+.header-inner{max-width:1200px;margin:0 auto;padding:6px 12px;display:flex;align-items:center;gap:6px}
 
-.search-wrap{order:3;flex:1 1 auto;display:flex;justify-content:center}
-.search-form{display:flex;align-items:center;max-width:520px;width:100%}
-.search-input{flex:1;min-width:0;padding:12px 14px;font-size:18px;border:1px solid var(--border);border-radius:0 8px 8px 0;outline:none}
-[dir="ltr"] .search-input{border-radius:8px 0 0 8px}
-.search-input:focus{border-color:var(--brand)}
-.search-button{display:inline-flex;align-items:center;justify-content:center;padding:12px 14px;border:none;background:var(--brand);color:#fff;border-radius:8px 0 0 8px;cursor:pointer}
-[dir="ltr"] .search-button{border-radius:0 8px 8px 0}
-.search-button:hover{background:var(--brand-700)}
-.search-button svg{width:20px;height:20px;fill:#fff}
+/* الأزرار الرمادية */
+.auth-nav{order:1;display:flex;gap:6px;align-items:center}
+.btn-sq{
+  min-width:70px;height:40px;display:inline-flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;letter-spacing:.2px;color:var(--btn-text);text-decoration:none;
+  background:var(--btn-gray);border:1px solid var(--gray-300);border-radius:10px;
+  transition:background .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.btn-sq:hover,.btn-sq:focus-visible{background:var(--btn-gray-hover);border-color:#c9c9c9;box-shadow:0 2px 6px rgba(0,0,0,.06)}
 
+/* زر الـ Home: خلفية رمادية + أيقونة زرقاء ثابتة */
+.home-btn{
+  order:2;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;
+  border:1px solid var(--gray-300);background:var(--btn-gray);border-radius:10px;
+  color:var(--btn-text);transition:background .15s ease, border-color .15s ease
+}
+.home-btn svg{width:18px;height:18px;fill:var(--brand)} /* أزرق مثل قبل باستخدام var(--brand) */  /* [web:129] */
+.home-btn:hover,.home-btn:focus-visible{background:var(--btn-gray-hover);border-color:#c9c9c9}
+
+/* Search */
+.search-wrap{order:3;flex:1 1 auto;display:flex;justify-content:center;align-items:center}
+.search-form{display:flex;align-items:center;width:min(560px,58%);background:#fff;border:1px solid var(--gray-300);border-radius:10px;overflow:hidden;margin:0 10px}
+.search-input{flex:1;min-width:0;height:38px;padding:0 12px;font-size:14px;border:none;outline:none;color:#333;text-align:right}
+.search-button{width:44px;height:38px;display:inline-flex;align-items:center;justify-content:center;background:var(--brand);border:none;cursor:pointer}
+.search-button svg{width:16px;height:16px;fill:#fff}
+
+/* شعار: دائرة واضحة بالحجم نفسه */
 .brand-left{order:4;margin-inline-start:auto;display:flex;align-items:center}
-.logo{font-weight:800;font-size:18px;white-space:nowrap}
+.brand-logo-circle{
+  width:176px;height:176px;border-radius:50%;
+  border:2px solid #fff;outline:1px solid #d4e9ff;
+  object-fit:cover;image-rendering:auto;background:#0000;box-shadow:0 2px 10px rgba(0,0,0,.08)
+}
 
-/* Page spacing */
-.page{flex:1;display:flex;flex-direction:column;padding-top:90px}
-.container{max-width:1100px;margin:0 auto;padding:24px}
+/* Layout */
+.page{flex:1;display:flex;flex-direction:column}
+.container{max-width:1200px;margin:0 auto;padding:8px 16px}
 
-/* Hero */
-.hero{background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:18px;margin-bottom:16px}
-.hero h1{margin:0 0 6px;font-size:22px}
-.hero .lead{margin:0;color:var(--muted)}
+/* Hero: رفع النص وتقليل الفراغات */
+.hero{background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:10px;margin:6px 0 10px;text-align:center}
+.hero.tight{margin-top:2px}
+.hero h1{margin:0 0 2px;font-size:clamp(16px,1.4vw,19px);font-weight:800;line-height:1.25}
+.hero .lead{margin:0;color:var(--muted);font-size:clamp(12px,1.05vw,13.5px);line-height:1.5;font-weight:500}
 
-/* Roles */
-.role-cards{display:grid;grid-template-columns:repeat(2,minmax(260px,1fr));gap:14px;margin:8px 0 18px}
-.role-card{display:block;background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:18px;text-decoration:none;color:inherit;transition:transform .15s ease}
-.role-card:hover{transform:translateY(-2px)}
-.role-card .role-title{font-weight:800;margin-bottom:6px}
-.role-card .role-desc{color:var(--muted);font-size:14px}
-.role-card.student{border-inline-start:6px solid var(--blue);background:linear-gradient(0deg,rgba(37,99,235,.06),rgba(37,99,235,.06)),var(--card);order:1}
-.role-card.teacher{border-inline-start:6px solid var(--green);background:linear-gradient(0deg,rgba(22,163,74,.06),rgba(22,163,74,.06)),var(--card);order:2}
-.role-card.interactive .role-actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
-.btn.action{display:inline-block;padding:10px 14px;border:1px solid var(--border);border-radius:8px;background:#fff;color:#111;text-decoration:none;font-weight:700}
-.btn.action:hover{background:#f7f7f7}
-.btn.action.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
-.btn.action.primary:hover{background:var(--blue-700)}
+/* Roles: كلاهما رابط ومحاذاة موحدة */
+.role-cards{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(480px,1fr));
+  gap:16px;margin:10px auto 36px;justify-content:center;align-items:start;max-width:1120px
+} /* ضبط الاتساع عبر minmax لإتاحة تكبير خفيف للبطاقات */  /* [web:143] */
+.role-card{
+  display:block;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
+  padding:34px 36px;text-decoration:none;color:inherit;transition:transform .15s ease,background .15s ease;cursor:pointer
+}
+.role-card:hover{transform:translateY(-2px);background:#f6f6f6}
+.role-card .role-title{font-weight:900;margin-bottom:8px;font-size:21px;line-height:1.25;text-align:right}
+.role-card .role-desc{color:var(--muted);font-size:16px;line-height:1.8;text-align:right}
+.role-card.student{order:1;border-inline-start:8px solid var(--blue);background:linear-gradient(0deg,rgba(37,99,235,.06),rgba(37,99,235,.06)),var(--card)}
+.role-card.teacher{order:2;border-inline-start:8px solid var(--green);background:linear-gradient(0deg,rgba(22,163,74,.06),rgba(22,163,74,.06)),var(--card)}
 
-/* Contact & Links */
-.contact{background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:18px;margin:14px 0}
-.contact h2{margin:0 0 10px}
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;align-items:center}
-.contact-item{display:flex;align-items:center;gap:8px}
-.icon{width:18px;height:18px;fill:var(--brand)}
-.social{display:flex;gap:10px}
-.social-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--border);background:#fff;text-decoration:none}
+/* Bottom: إنزال الأقسام أكثر للأسفل */
+.bottom-area{margin-top:10px;padding:0 16px 56px}
+.bottom-grid{display:grid;grid-template-columns:repeat(2,minmax(400px,1fr));gap:16px;align-items:start;justify-content:center;max-width:1160px;margin:0 auto}
+
+/* Contact */
+.card.small{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:16px}
+.card.small h2{margin:0 0 8px;font-size:15px;font-weight:800}
+.contact-block{display:flex;flex-direction:column;gap:10px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:nowrap}
+.row.email,.row.phone{justify-content:flex-start}
+.icon{width:18px;height:18px;flex:0 0 18px;fill:currentColor;color:var(--brand)}
+.row.email span,.row.phone .phone-text{line-height:1}
+.phone-text{direction:ltr;unicode-bidi:bidi-override}
+
+/* Social icons */
+.row.social{justify-content:center;width:100%;margin-top:6px;gap:8px;flex-wrap:wrap}
+.social-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--gray-300);background:#fff;display:inline-flex;align-items:center;justify-content:center;transition:background .15s ease, border-color .15s ease}
 .social-btn svg{width:18px;height:18px;fill:#333}
-.social-btn.fb svg{fill:#1877f2}
-.social-btn.tw svg{fill:#111}
-.social-btn.ig svg{fill:#E1306C}
-.social-btn.yt svg{fill:#ff0000}
+.social-btn.fb svg{fill:#1877f2}.social-btn.tw svg{fill:#111}.social-btn.yt svg{fill:#ff0000}
+.social-btn:hover{background:var(--hover-dark);border-color:#c9c9c9}
 
-.links{background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:18px;margin:14px 0}
-.links h2{margin:0 0 10px}
-.links-list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
-.link-item{color:var(--brand);text-decoration:none}
-.link-item:hover{color:var(--brand-700);text-decoration:underline}
+/* Links */
+.links-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto auto;gap:8px}
+.pos-1{grid-column:2;grid-row:1}
+.pos-2{grid-column:1;grid-row:1}
+.pos-3{grid-column:2;grid-row:2}
+.pos-4{grid-column:1;grid-row:2}
+.link-a{display:inline-block;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--brand);transition:background .15s ease,color .15s ease}
+.link-a:hover,.link-a:focus-visible{background:var(--hover);color:var(--brand-700)}
 
-/* Footer */
-.site-footer{margin-top:auto;background:#f2f2f2;border-top:1px solid var(--border)}
-.footer-inner{max-width:1100px;margin:0 auto;padding:16px 20px;color:#555}
+/* Footer: الكوبي رايت فقط */
+.site-footer{background:#f2f2f2;border-top:1px solid var(--border)}
+.footer-inner{max-width:1200px;margin:0 auto;padding:10px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center}
+.footer-inner .copyright{color:#555;font-size:13.5px}
 
 /* Responsive */
-@media (max-width:900px){
-  .header-inner{gap:10px;flex-wrap:wrap}
-  .search-wrap{order:5;flex:1 0 100%}
-  .brand-left{order:6;width:100%;justify-content:center;margin-inline-start:0}
+@media (max-width:1100px){
+  .role-cards{grid-template-columns:1fr;max-width:680px}
+  .bottom-grid{grid-template-columns:1fr;max-width:640px}
 }
-@media (max-width:700px){
-  .page{padding-top:120px}
-  .container{padding:16px}
-  .search-form{max-width:100%}
-  .role-cards{grid-template-columns:1fr}
+@media (max-width:640px){
+  .header-inner{gap:6px}
+  .btn-sq{min-width:62px;height:38px;font-size:12.5px}
+  .home-btn{width:38px;height:38px}
+  .search-form{width:100%;margin:0 8px}
+  .brand-logo-circle{width:160px;height:160px}
 }

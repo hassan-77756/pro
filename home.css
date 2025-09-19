@@ -62,6 +62,11 @@ body {
   gap: 3px;
 }
 
+.burger-menu:focus + .nav-right,
+.nav-right:hover {
+  display: flex !important;
+}
+
 .burger-menu span {
   width: 18px;
   height: 2px;
@@ -79,6 +84,18 @@ body {
 }
 
 .burger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+.burger-menu:hover span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.burger-menu:hover span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu:hover span:nth-child(3) {
   transform: rotate(-45deg) translate(4px, -4px);
 }
 
@@ -559,6 +576,14 @@ body {
 .site-footer {
   background: #f2f2f2;
   border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.site-footer .container {
+  display: inline-block;
+  max-width: none; 
+  margin: 0;        
+  padding: 0 1rem;
 }
 
 .footer-inner {
@@ -622,8 +647,14 @@ body {
     z-index: 100;
   }
   
-  .nav-right.active {
-    display: flex;
+  /* حل البرجر بـ CSS فقط */
+  .burger-menu:hover + .nav-right,
+  .nav-right:hover {
+    display: flex !important;
+  }
+  
+  .burger-menu:focus + .nav-right {
+    display: flex !important;
   }
   
   .btn-link, .home-btn {
@@ -830,14 +861,4 @@ body {
   .spacer {
     height: 50px;
   }
-}
-.site-footer {
-  text-align: center;
-}
-
-.site-footer .container {
-  display: inline-block;
-  max-width: none; 
-  margin: 0;        
-  padding: 0 1rem;
 }

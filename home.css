@@ -1037,3 +1037,139 @@ body {
     height: 160px;
   }
 }
+@media (max-width: 768px) {
+  .burger-menu {
+    display: none !important; /* إخفاء البرجر بالكامل */
+  }
+  
+  .header-inner {
+    flex-direction: column;
+    padding: 10px 15px;
+    gap: 10px;
+  }
+  
+  .nav-right {
+    display: flex !important; /* إظهار القائمة مباشرة */
+    position: relative; /* إزالة الموقع المطلق */
+    order: 1;
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+    background: transparent; /* إزالة الخلفية */
+    box-shadow: none; /* إزالة الظل */
+    padding: 0; /* إزالة الحشو */
+    z-index: auto;
+  }
+  
+  .btn-link, .home-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    height: 40px;
+  }
+  
+  .home-btn {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+  
+  .search-bar {
+    order: 2;
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
+  }
+  
+  .search-form {
+    max-width: none;
+    min-width: 280px;
+    height: 44px;
+    width: 100%;
+  }
+  
+  .search-button {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .search-button svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .search-input {
+    font-size: 16px;
+    padding: 0 16px;
+  }
+  
+  .logo-container {
+    order: 3;
+  }
+  
+  .brand-logo-img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .spacer {
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  
+  .nav-right {
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .btn-link, .home-btn {
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+    height: 36px;
+    font-size: 12px;
+  }
+  
+  .home-btn {
+    width: 36px;
+    height: 36px;
+    max-width: 36px;
+  }
+  
+  .search-form {
+    min-width: 250px;
+    height: 40px;
+  }
+  
+  .search-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .search-button svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .search-input {
+    font-size: 14px;
+    padding: 0 12px;
+  }
+  
+  .brand-logo-img {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .spacer {
+    height: 160px;
+  }
+}

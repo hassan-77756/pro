@@ -556,176 +556,197 @@ body {
 
 @media (max-width: 768px) {
   .header-inner {
-    flex-direction: column;
-    padding: 15px 20px;
-    gap: 15px;
+    padding: 8px 12px;
+    gap: 8px;
   }
+  
   .nav-right {
-    order: 1;
-    width: 100%;
-    justify-content: center;
+    gap: 6px;
   }
+  
+  .btn-link {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 12px;
+  }
+  
+  .home-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+  }
+  
+  .home-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+  
   .search-bar {
-    order: 2;
-    width: 100%;
-    max-width: none;
     margin-left: 0;
     margin-right: 0;
+    max-width: none;
     justify-content: center;
   }
+  
   .search-form {
-    max-width: none;
-    min-width: 320px;
-    height: 46px;
+    max-width: 200px;
+    min-width: 180px;
+    height: 32px;
   }
+  
   .search-button {
-    width: 46px;
-    height: 46px;
+    width: 32px;
+    height: 32px;
   }
-  .logo-container {
-    order: 3;
+  
+  .search-button svg {
+    width: 14px;
+    height: 14px;
   }
+  
+  .search-input {
+    font-size: 12px;
+    padding: 0 8px;
+  }
+  
+  .brand-logo-img {
+    width: 32px;
+    height: 32px;
+  }
+  
   .spacer {
-    height: 140px;
+    height: 60px;
   }
+  
   .role-cards {
     grid-template-columns: 1fr;
     gap: 10px;
     padding: 0 4px;
     max-width: 100%;
   }
+  
   .role-card {
-    padding: 24px 14px;
-    font-size: 15px;
+    padding: 20px 12px;
+    font-size: 14px;
     min-width: 0;
   }
+  
   .bottom-grid {
     grid-template-columns: 1fr;
     gap: 12px;
     max-width: 100%;
   }
-  .card.small {
-    padding: 20px;
-    min-height: 140px;
-  }
-  .card.small h2 {
-    font-size: 16px;
-    margin-bottom: 12px;
-  }
-  .contact-block {
-    gap: 6px;
-    max-width: 200px;
-  }
-  .row {
-    font-size: 15px;
-    gap: 8px;
-  }
-  .row.email,
-  .row.phone {
-    max-width: 180px;
-  }
-  .row.email span,
-  .row.phone .phone-text {
-    font-size: 15px;
-  }
-  .icon {
-    width: 18px;
-    height: 18px;
-  }
-  .row.social {
-    gap: 5px;
-    max-width: 160px;
-    margin-top: 5px;
-  }
-  .social-btn {
-    width: 30px;
-    height: 30px;
-  }
-  .social-btn svg {
-    width: 15px;
-    height: 15px;
-  }
-  .links-grid {
-    gap: 5px;
-    max-width: 180px;
-  }
-  .link-a {
-    padding: 12px 14px;
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-right {
-    flex-direction: column;
-    gap: 8px;
-  }
-  .btn-link, .home-btn {
-    width: 100%;
-    max-width: 200px;
-    justify-content: center;
-  }
-  .spacer {
-    height: 180px;
-  }
-  .header-inner {
-    padding: 12px 15px;
-  }
-  .search-form {
-    min-width: 280px;
-    height: 42px;
-  }
-  .search-button {
-    width: 42px;
-    height: 42px;
-  }
+  
   .card.small {
     padding: 16px;
     min-height: 120px;
   }
+  
   .card.small h2 {
     font-size: 15px;
     margin-bottom: 10px;
   }
+  
   .contact-block {
-    gap: 5px;
+    gap: 6px;
     max-width: 180px;
   }
+  
   .row {
-    font-size: 14px;
+    font-size: 13px;
     gap: 6px;
   }
+  
   .row.email,
   .row.phone {
     max-width: 160px;
   }
+  
   .row.email span,
   .row.phone .phone-text {
-    font-size: 14px;
+    font-size: 13px;
   }
+  
   .icon {
     width: 16px;
     height: 16px;
   }
+  
   .row.social {
     gap: 4px;
     max-width: 140px;
     margin-top: 4px;
   }
+  
   .social-btn {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
   }
+  
   .social-btn svg {
     width: 13px;
     height: 13px;
   }
+  
   .links-grid {
     gap: 4px;
     max-width: 160px;
   }
+  
   .link-a {
-    padding: 10px 12px;
-    font-size: 13px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner {
+    padding: 6px 8px;
+    gap: 6px;
+  }
+  
+  .btn-link {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  
+  .home-btn {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .home-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .search-form {
+    max-width: 160px;
+    min-width: 140px;
+    height: 28px;
+  }
+  
+  .search-button {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .search-button svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .search-input {
+    font-size: 10px;
+    padding: 0 6px;
+  }
+  
+  .brand-logo-img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .spacer {
+    height: 50px;
   }
 }

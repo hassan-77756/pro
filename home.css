@@ -1332,3 +1332,63 @@ body {
     height: 50px;
   }
 }
+
+@media (max-width: 768px) {
+  .search-bar {
+    order: 2;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .search-form {
+    width: calc(100% - 40px);
+    max-width: none;
+    min-width: 0;
+    height: 46px;
+    border-radius: 23px;
+  }
+
+  .search-input {
+    font-size: 15px;
+    padding: 0 20px;
+    height: 46px;
+  }
+
+  .search-button {
+    width: 46px;
+    height: 46px;
+    border-radius: 0 23px 23px 0;
+  }
+
+  .search-button svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-form {
+    width: calc(100% - 34px);
+    height: 42px;
+    border-radius: 21px;
+  }
+
+  .search-input {
+    font-size: 14px;
+    padding: 0 16px;
+    height: 42px;
+  }
+
+  .search-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 0 21px 21px 0;
+  }
+
+  .search-button svg {
+    width: 14px;
+    height: 14px;
+  }
+}

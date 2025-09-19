@@ -1392,3 +1392,38 @@ body {
     height: 14px;
   }
 }
+
+@media (max-width: 480px) {
+  .burger-menu {
+    width: 28px;
+    height: 28px;
+    gap: 2px;
+  }
+  
+  .burger-menu span {
+    width: 16px;
+    height: 2px;
+  }
+  
+  .header-inner {
+    padding: 6px 8px;
+  }
+  
+  .nav-right {
+    padding: 8px;
+    gap: 4px;
+  }
+  
+  .btn-link, .home-btn {
+    max-width: 120px;
+    font-size: 10px;
+    height: 28px;
+    padding: 4px 8px;
+  }
+  
+  .home-btn {
+    width: 28px;
+    height: 28px;
+    max-width: 28px;
+  }
+}

@@ -7,10 +7,15 @@
   <link rel="stylesheet" href="home.css" />
 </head>
 <body>
-  <!-- نفس Header من index -->
   <header class="site-header">
     <div class="header-inner">
-      <nav class="nav-right">
+      <button class="burger-menu" id="burgerBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav class="nav-right" id="navMenu">
         <a class="btn-link" href="index.html">Sign Up</a>
         <a class="btn-link" href="index2.html">Log In</a>
         <a class="home-btn" href="home.html" aria-label="Home">
@@ -19,6 +24,7 @@
           </svg>
         </a>
       </nav>
+      
       <div class="search-bar">
         <form action="search.html" method="get" class="search-form">
           <button type="submit" class="search-button" aria-label="Search">
@@ -29,6 +35,7 @@
           <input type="search" name="q" class="search-input" placeholder="Search course ..." required />
         </form>
       </div>
+      
       <div class="logo-container">
         <img class="brand-logo-img" src="project2.png" alt="Smart Educational Library logo" />
       </div>
@@ -37,7 +44,6 @@
 
   <div class="spacer"></div>
 
-  <!-- محتوى الهوم -->
   <main class="page">
     <div class="container">
       <section class="hero tight" aria-labelledby="site-title">
@@ -125,5 +131,15 @@
       <span class="copyright">© 2025 Smart Educational Library</span>
     </div>
   </footer>
+
+  <script>
+    document.getElementById('burgerBtn').addEventListener('click', function() {
+      const navMenu = document.getElementById('navMenu');
+      const burger = this;
+      
+      navMenu.classList.toggle('active');
+      burger.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>

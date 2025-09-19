@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -9,9 +9,13 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-
-      <!-- Right side navigation -->
-      <nav class="nav-right">
+      <button class="burger-menu" id="burgerBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav class="nav-right" id="navMenu">
         <a class="btn-link" href="index.html">Sign Up</a>
         <a class="btn-link" href="index2.html">Log In</a>
         <a class="home-btn" href="home.html" aria-label="Home">
@@ -20,8 +24,7 @@
           </svg>
         </a>
       </nav>
-
-      <!-- Center search bar -->
+      
       <div class="search-bar">
         <form action="search.html" method="get" class="search-form">
           <button type="submit" class="search-button" aria-label="Search">
@@ -32,17 +35,15 @@
           <input type="search" name="q" class="search-input" placeholder="Search course ..." required />
         </form>
       </div>
-
-      <!-- Left side logo -->
+      
       <div class="logo-container">
         <img class="brand-logo-img" src="project2.png" alt="Smart Educational Library logo" />
       </div>
-
     </div>
   </header>
 
   <div class="spacer"></div>
-
+  
   <main>
     <h2>Sign Up Form</h2>
     <form class="signup-form" action="/api/signup" method="post" autocomplete="on">
@@ -53,7 +54,6 @@
         <input id="username" type="text" name="username" placeholder="Username" required minlength="4" maxlength="20" pattern="^[a-zA-Z0-9]{4,20}$" aria-describedby="username-err" inputmode="latin" />
         <small id="username-err" class="error-text">Use 4 to 20 letters or digits</small>
       </div>
-
       <div class="field">
         <div class="field-top">
           <label class="label" for="email">Email</label>
@@ -61,7 +61,6 @@
         <input id="email" type="email" name="email" placeholder="Email" required aria-describedby="email-err" autocomplete="email" />
         <small id="email-err" class="error-text">Please enter a valid email address</small>
       </div>
-
       <div class="field">
         <div class="field-top">
           <label class="label" for="password">Password</label>
@@ -69,15 +68,23 @@
         <input id="password" type="password" name="password" placeholder="Password" required minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).{8,}$" aria-describedby="password-err" autocomplete="new-password" />
         <small id="password-err" class="error-text">Must include upper, lower, number, and special character</small>
       </div>
-
       <div class="actions">
         <button type="submit" class="submit-btn">Sign Up</button>
       </div>
-
       <div class="terms">
         By signing up you agree to our <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>
       </div>
     </form>
   </main>
+
+  <script>
+    document.getElementById('burgerBtn').addEventListener('click', function() {
+      const navMenu = document.getElementById('navMenu');
+      const burger = this;
+      
+      navMenu.classList.toggle('active');
+      burger.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>

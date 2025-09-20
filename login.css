@@ -855,21 +855,15 @@ h2 {
     justify-content: center;
   }
 
-  .nav-right {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    background: #f2f2f2;
-    box-shadow: var(--shadow);
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    z-index: 100;
-  }
 
-  .nav-right.active {
-    display: flex;
+  .nav-right .home-btn {
+    width: 44px;
+    height: 44px;
+    margin: 6px auto;
+  }
+  .nav-right .home-btn svg {
+    width: 24px;
+    height: 24px;
   }
 
   .logo-container {
@@ -901,16 +895,5 @@ h2 {
   .home-btn {
     width: 36px; height: 36px;
   }
-}
-@media (max-width: 767px) {
 
-  .nav-right .home-btn {
-    width: 44px;
-    height: 44px;
-    margin: 6px auto;
-  }
-  .nav-right .home-btn svg {
-    width: 24px;
-    height: 24px;
-  }
 }

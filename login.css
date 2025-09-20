@@ -671,3 +671,81 @@ h2 {
   text-decoration: underline;
   color: var(--brand-700);
 }
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .burger-menu {
+    display: flex;
+    order: 1;
+    flex-shrink: 0;
+  }
+
+  .search-bar {
+    order: 2;
+    flex: 1;
+    margin-left: 10px;
+    margin-right: 10px;
+    justify-content: center;
+  }
+
+  .logo-container {
+    order: 3;
+    flex-shrink: 0;
+  }
+
+  .nav-right {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #f2f2f2;
+    box-shadow: var(--shadow);
+    flex-direction: column;
+    padding: 10px;
+    gap: 8px;
+    z-index: 100;
+  }
+
+  .nav-right.active {
+    display: flex;
+  }
+
+  .btn-link, .home-btn {
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+    margin: 0 auto 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    height: 36px;
+  }
+
+  .home-btn {
+    width: 36px;
+    height: 36px;
+    max-width: 36px;
+  }
+
+  .search-form {
+    max-width: 250px;
+    height: 36px;
+  }
+
+  .search-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-logo-img {
+    width: 36px;
+    height: 36px;
+  }
+}

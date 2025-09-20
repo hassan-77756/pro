@@ -902,3 +902,15 @@ h2 {
     width: 36px; height: 36px;
   }
 }
+@media (max-width: 767px) {
+
+  .nav-right .home-btn {
+    width: 44px;
+    height: 44px;
+    margin: 6px auto;
+  }
+  .nav-right .home-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+}

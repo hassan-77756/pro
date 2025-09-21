@@ -835,3 +835,22 @@ body {
     height: 50px;
   }
 }
+.cta-card {
+  position: relative; 
+  z-index: 1; 
+}
+.cta-card {
+  touch-action: manipulation;
+}
+.spacer {
+  height: 80px; 
+}
+
+.site-header {
+  z-index: 100; /
+}
+
+.cta-card {
+  z-index: 1;
+  position: relative;
+}

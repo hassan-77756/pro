@@ -128,5 +128,14 @@
             document.querySelector('.nav-right').classList.toggle('active');
         }
     </script>
+    <script>
+  const burgerBtn = document.getElementById('burgerBtn');
+  const navMenu = document.getElementById('navMenu');
+  burgerBtn.addEventListener('click', ()=>{
+    burgerBtn.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+</script>
+
 </body>
 </html>

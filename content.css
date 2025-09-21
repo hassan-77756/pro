@@ -513,3 +513,25 @@ main {
     font-size: 0.75rem;
   }
 }
+
+  @media (max-width:768px){
+    .burger-menu{display:flex;}
+    .nav-right{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      background:#f2f2f2;
+      flex-direction:column;
+      padding:10px;
+      gap:6px;
+      z-index:100;
+    }
+    .nav-right.active{display:flex;}
+
+    .role-cards{grid-template-columns:repeat(2,1fr); gap:10px;}
+    .cta-section{grid-template-columns:repeat(2,1fr); gap:10px;}
+  }
+
+

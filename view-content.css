@@ -824,64 +824,29 @@ main {
   height: 20%;
   background: rgba(255,255,255,0.6);
 }
-@media (max-width: 768px) {
-  /* منع التمرير الأفقي العام */
-  .dashboard {
-    overflow-x: visible;
-    overflow-y: visible;
-    white-space: normal;
-  }
 
-  /* تفعيل التمرير لكل صف من البطاقات */
-  .card-row {
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    gap: 12px;
-    padding-bottom: 8px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .card-row .card {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-  }
-
-  /* تنسيق شريط التمرير المخفي */
-  .card-row::-webkit-scrollbar {
-    height: 4px;
-  }
-  .card-row::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 2px;
-  }
-  .card-row::-webkit-scrollbar-track {
-    background: transparent;
-  }
-}
 @media (max-width: 768px) {
   .card-row {
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
     gap: 12px;
-    padding: 16px 0;           /* مسافة أعلى وأسفل */
+    padding: 16px 0;          
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
 
   .card-row .card {
-    flex: 0 0 80%;             /* يظهر بطاقتان تقريباً */
+    flex: 0 0 80%;             
     scroll-snap-align: start;
   }
 
-  /* إخفاء شريط التمرير */
+ 
   .card-row::-webkit-scrollbar {
     display: none;
   }
   .card-row {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;     /* Firefox */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;     
   }
 }

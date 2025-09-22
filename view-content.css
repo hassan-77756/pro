@@ -824,70 +824,42 @@ main {
   height: 20%;
   background: rgba(255,255,255,0.6);
 }
-/* Burger menu base */
+/* === Override any previous burger-menu styles === */
 .burger-menu {
-  display: none;
-  flex-direction: column;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  width: 36px; /* تكبير الحجم الافتراضي */
-  height: 36px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
+  display: none !important;       /* إخفاء النسخ القديمة */
+  flex-direction: column !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 6px !important;
+  width: 40px !important;
+  height: 40px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 5px !important;
 }
 
 .burger-menu span {
-  width: 20px;   /* تكبير طول الخطوط */
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-  transition: all 0.3s ease;
+  width: 22px !important;
+  height: 2px !important;
+  background: var(--text) !important;
+  border-radius: 1px !important;
+  transition: all 0.3s ease !important;
 }
 
-/* Active state */
 .burger-menu.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(5px, 5px) !important;
 }
 .burger-menu.active span:nth-child(2) {
-  opacity: 0;
+  opacity: 0 !important;
 }
 .burger-menu.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(5px, -5px) !important;
 }
 
 /* Mobile */
 @media (max-width: 768px) {
   .burger-menu {
-    display: flex;
-    width: 40px;   /* حجم أكبر قليلاً للجوال */
-    height: 40px;
-    padding: 6px;
-    gap: 5px;
-  }
-  .burger-menu span {
-    width: 22px;
-    height: 2px;
-  }
-  .header-inner {
-    padding: 8px 12px;
-  }
-  .nav-right {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #f2f2f2;
-    box-shadow: var(--shadow);
-    flex-direction: column;
-    padding: 12px;
-    gap: 10px;
-    z-index: 100;
-  }
-  .nav-right.active {
-    display: flex;
+    display: flex !important;
   }
 }

@@ -9,7 +9,7 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <button class="burger-menu" id="burgerBtn" onclick="toggleMenu()" aria-label="Menu">
+      <button class="burger-menu" id="burgerBtn" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
       <nav class="nav-right" id="navMenu">
@@ -81,14 +81,18 @@
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('navMenu').classList.toggle('active');
-    }
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    burgerBtn.addEventListener('click', () => {
+      burgerBtn.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
     document.addEventListener('click', e => {
-      const nav = document.getElementById('navMenu');
-      const btn = document.getElementById('burgerBtn');
-      if (!btn.contains(e.target) && !nav.contains(e.target)) {
-        nav.classList.remove('active');
+      if (!burgerBtn.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active');
+        burgerBtn.classList.remove('active');
       }
     });
   </script>

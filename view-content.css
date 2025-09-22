@@ -824,3 +824,35 @@ main {
   height: 20%;
   background: rgba(255,255,255,0.6);
 }
+/* إزالة التمرير الأفقي من العرض العادي */
+.dashboard {
+  overflow-x: visible;
+  overflow-y: visible;
+  white-space: normal;
+}
+
+/* تفعيل التمرير الأفقي فقط على الجوال */
+@media (max-width: 768px) {
+  .dashboard {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom: 10px;
+  }
+  .dashboard section {
+    display: inline-block;
+    vertical-align: top;
+    width: 90vw;
+    margin-right: 10px;
+  }
+  .dashboard::-webkit-scrollbar {
+    height: 6px;
+  }
+  .dashboard::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+  }
+  .dashboard::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}

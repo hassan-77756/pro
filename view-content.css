@@ -860,3 +860,28 @@ main {
     background: transparent;
   }
 }
+@media (max-width: 768px) {
+  .card-row {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 12px;
+    padding: 16px 0;           /* مسافة أعلى وأسفل */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .card-row .card {
+    flex: 0 0 80%;             /* يظهر بطاقتان تقريباً */
+    scroll-snap-align: start;
+  }
+
+  /* إخفاء شريط التمرير */
+  .card-row::-webkit-scrollbar {
+    display: none;
+  }
+  .card-row {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+}

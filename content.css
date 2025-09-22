@@ -535,3 +535,19 @@ main {
   }
 
 
+.frame-wrapper {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 60vh;
+  z-index: 1;
+}
+
+
+@media (max-width: 768px) {
+  .frame-wrapper {
+    z-index: 1;
+  }
+}
+
+

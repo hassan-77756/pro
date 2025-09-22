@@ -824,35 +824,39 @@ main {
   height: 20%;
   background: rgba(255,255,255,0.6);
 }
-/* إزالة التمرير الأفقي من العرض العادي */
-.dashboard {
-  overflow-x: visible;
-  overflow-y: visible;
-  white-space: normal;
-}
-
-/* تفعيل التمرير الأفقي فقط على الجوال */
 @media (max-width: 768px) {
+  /* منع التمرير الأفقي العام */
   .dashboard {
+    overflow-x: visible;
+    overflow-y: visible;
+    white-space: normal;
+  }
+
+  /* تفعيل التمرير لكل صف من البطاقات */
+  .card-row {
+    display: flex;
     overflow-x: auto;
     overflow-y: hidden;
-    white-space: nowrap;
-    padding-bottom: 10px;
+    gap: 12px;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
-  .dashboard section {
-    display: inline-block;
-    vertical-align: top;
-    width: 90vw;
-    margin-right: 10px;
+
+  .card-row .card {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
   }
-  .dashboard::-webkit-scrollbar {
-    height: 6px;
+
+  /* تنسيق شريط التمرير المخفي */
+  .card-row::-webkit-scrollbar {
+    height: 4px;
   }
-  .dashboard::-webkit-scrollbar-thumb {
+  .card-row::-webkit-scrollbar-thumb {
     background: var(--border);
-    border-radius: 3px;
+    border-radius: 2px;
   }
-  .dashboard::-webkit-scrollbar-track {
+  .card-row::-webkit-scrollbar-track {
     background: transparent;
   }
 }

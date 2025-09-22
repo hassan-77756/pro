@@ -824,7 +824,7 @@ main {
   height: 20%;
   background: rgba(255,255,255,0.6);
 }
-/* === Override previous burger-menu and mobile styles === */
+/* === Override previous burger-menu and mobile styles for all pages === */
 @media (max-width: 480px) {
   .burger-menu {
     display: flex !important;

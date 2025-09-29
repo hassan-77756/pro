@@ -371,38 +371,11 @@ body {
   margin: 0 auto;
 }
 
-@media (max-width: 1200px) {
-  .search-bar {
-    margin-left: 150px;
-  }
-  .search-form {
-    max-width: 520px;
-    min-width: 380px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .search-bar {
-    margin-left: 100px;
-  }
-  .search-form {
-    max-width: 480px;
-    min-width: 350px;
-  }
-}
-
 @media (max-width: 768px) {
   .burger-menu {
     display: flex;
-    order: 1;
   }
-  .header-inner {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px;
-    gap: 8px;
-  }
+
   .nav-right {
     display: none;
     position: absolute;
@@ -410,142 +383,80 @@ body {
     left: 0;
     right: 0;
     background: #f2f2f2;
-    box-shadow: var(--shadow);
     flex-direction: column;
     padding: 10px;
     gap: 8px;
-    z-index: 100;
   }
+
   .nav-right.active {
     display: flex;
   }
+
   .btn-link {
     width: 100%;
-    max-width: 200px;
-    justify-content: center;
-    margin: 0 auto 6px;
-    padding: 8px 16px;
+    max-width: 180px;
+    padding: 8px;
     font-size: 14px;
     height: 36px;
+    text-align: center;
   }
-  .nav-right .home-btn {
+
+  .home-btn {
     width: 44px;
     height: 44px;
-    margin: 6px auto;
-    max-width: 44px;
+    margin: 0 auto;
   }
-  .nav-right .home-btn svg {
-    width: 24px;
-    height: 24px;
-  }
+
   .search-bar {
     order: 2;
     flex: 1;
     margin: 0 8px;
-    max-width: none;
     justify-content: center;
   }
+
   .search-form {
     max-width: 200px;
     width: 100%;
     height: 36px;
   }
+
   .search-button {
     width: 36px;
     height: 36px;
   }
+
   .search-input {
     font-size: 14px;
     padding: 0 10px;
   }
-  .logo-container {
-    order: 3;
-    flex-shrink: 0;
-  }
+
   .brand-logo-img {
     width: 36px;
     height: 36px;
   }
+
   .spacer {
     height: 70px;
   }
+
   .dashboard {
     margin: 10px;
     padding: 20px;
   }
+
   .card {
-    min-width: 180px;
+    min-width: 200px;
+    width: 200px;
     padding: 15px;
   }
-  .card-row {
-    gap: 12px;
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 16px 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .card-row::-webkit-scrollbar {
-    display: none;
-  }
-  .card-row .card {
-    flex: 0 0 80%;
-    scroll-snap-align: start;
-  }
-}
 
-@media (max-width: 480px) {
-  .burger-menu {
-    width: 28px;
-    height: 28px;
-    gap: 2px;
+  .card-row {
+    overflow-x: auto;
+    gap: 12px;
+    padding: 16px 0;
   }
-  .burger-menu span {
-    width: 16px;
-    height: 2px;
-  }
-  .header-inner {
-    padding: 6px 8px;
-  }
-  .nav-right {
-    padding: 8px;
-    gap: 4px;
-  }
-  .btn-link {
-    max-width: 120px;
-    font-size: 10px;
-    height: 28px;
-    padding: 4px 8px;
-  }
-  .nav-right .home-btn {
-    width: 40px;
-    height: 40px;
-    max-width: 40px;
-  }
-  .nav-right .home-btn svg {
-    width: 22px;
-    height: 22px;
-  }
-  .search-form {
-    max-width: 160px;
-    height: 28px;
-  }
-  .search-button {
-    width: 28px;
-    height: 28px;
-  }
-  .search-input {
-    font-size: 12px;
-    padding: 0 6px;
-  }
-  .brand-logo-img {
-    width: 28px;
-    height: 28px;
-  }
-  .spacer {
-    height: 50px;
+
+  .card-row .card {
+    flex: 0 0 200px;
   }
 }

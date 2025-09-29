@@ -9,6 +9,11 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
+      <button class="burger-menu" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav class="nav-right">
         <a class="btn-link" href="content.html">Content</a>
         <a class="btn-link" href="index2.html">Log In</a>
@@ -56,72 +61,22 @@
     <section>
       <h2>YouTube</h2>
       <div class="card-row five-cards">
-        <div class="card">
-          <div class="icon"><div class="icon-play"></div></div>
-          <h3>Video 1</h3>
-          <p>Video description</p>
-          <a href="#" class="contact-btn">View</a>
-        </div>
-        <div class="card">
-          <div class="icon"><div class="icon-play"></div></div>
-          <h3>Video 2</h3>
-          <p>Video description</p>
-          <a href="#" class="contact-btn">View</a>
-        </div>
-        <div class="card">
-          <div class="icon"><div class="icon-play"></div></div>
-          <h3>Video 3</h3>
-          <p>Video description</p>
-          <a href="#" class="contact-btn">View</a>
-        </div>
-        <div class="card">
-          <div class="icon"><div class="icon-play"></div></div>
-          <h3>Video 4</h3>
-          <p>Video description</p>
-          <a href="#" class="contact-btn">View</a>
-        </div>
-        <div class="card">
-          <div class="icon"><div class="icon-play"></div></div>
-          <h3>Video 5</h3>
-          <p>Video description</p>
-          <a href="#" class="contact-btn">View</a>
-        </div>
+        <div class="card"><div class="icon"><div class="icon-play"></div></div><h3>Video 1</h3><p>Video description</p><a href="#" class="contact-btn">View</a></div>
+        <div class="card"><div class="icon"><div class="icon-play"></div></div><h3>Video 2</h3><p>Video description</p><a href="#" class="contact-btn">View</a></div>
+        <div class="card"><div class="icon"><div class="icon-play"></div></div><h3>Video 3</h3><p>Video description</p><a href="#" class="contact-btn">View</a></div>
+        <div class="card"><div class="icon"><div class="icon-play"></div></div><h3>Video 4</h3><p>Video description</p><a href="#" class="contact-btn">View</a></div>
+        <div class="card"><div class="icon"><div class="icon-play"></div></div><h3>Video 5</h3><p>Video description</p><a href="#" class="contact-btn">View</a></div>
       </div>
     </section>
 
     <section>
       <h2>Google</h2>
       <div class="card-row five-cards">
-        <div class="card">
-          <div class="icon"><div class="icon-search"></div></div>
-          <h3>Result 1</h3>
-          <p>Result description</p>
-          <a href="#" class="contact-btn">View</a>
-        </div>
-        <div class="card">
-          <div class="icon"><div class="icon-search"></div></div>
-          <h3>Result 2</h3>
-          <p>Result description</p>
-          <a href="#" class="contact-btn">View</a>
-        </div>
-        <div class="card">
-          <div class="icon"><div class="icon-search"></div></div>
-          <h3>Result 3</h3>
-          <p>Result description</p>
-          <a href="#" class="contact-btn">View</a>
-        </div>
-        <div class="card">
-          <div class="icon"><div class="icon-search"></div></div>
-          <h3>Result 4</h3>
-          <p>Result description</p>
-          <a href="#" class="contact-btn">View</a>
-        </div>
-        <div class="card">
-          <div class="icon"><div class="icon-search"></div></div>
-          <h3>Result 5</h3>
-          <p>Result description</p>
-          <a href="#" class="contact-btn">View</a>
-        </div>
+        <div class="card"><div class="icon"><div class="icon-search"></div></div><h3>Result 1</h3><p>Result description</p><a href="#" class="contact-btn">View</a></div>
+        <div class="card"><div class="icon"><div class="icon-search"></div></div><h3>Result 2</h3><p>Result description</p><a href="#" class="contact-btn">View</a></div>
+        <div class="card"><div class="icon"><div class="icon-search"></div></div><h3>Result 3</h3><p>Result description</p><a href="#" class="contact-btn">View</a></div>
+        <div class="card"><div class="icon"><div class="icon-search"></div></div><h3>Result 4</h3><p>Result description</p><a href="#" class="contact-btn">View</a></div>
+        <div class="card"><div class="icon"><div class="icon-search"></div></div><h3>Result 5</h3><p>Result description</p><a href="#" class="contact-btn">View</a></div>
       </div>
     </section>
   </div>
@@ -129,5 +84,14 @@
   <footer class="site-footer">
     <p>© 2025 Smart Educational Library</p>
   </footer>
+
+  <script>
+    const burger = document.querySelector('.burger-menu');
+    const nav = document.querySelector('.nav-right');
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      burger.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>

@@ -9,14 +9,11 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <button class="burger-menu" id="burgerBtn" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav-right" id="navMenu">
+      <nav class="nav-right">
         <a class="btn-link" href="content.html">Content</a>
         <a class="btn-link" href="index2.html">Log In</a>
         <a class="home-btn" href="home.html" aria-label="Home">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 3l9 7v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4H11v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10l9-7z"/>
           </svg>
         </a>
@@ -42,119 +39,88 @@
   <div class="spacer"></div>
 
   <div class="dashboard">
-    <!-- Fails Section -->
-    <section>
-      <div class="row-header">
-        <h2>Fails (4)</h2>
-        <div class="controls">
-          <button class="arrow-btn" data-target="fails" data-dir="right"><div class="arrow-right"></div></button>
-          <button class="arrow-btn" data-target="fails" data-dir="left"><div class="arrow-left"></div></button>
-        </div>
-      </div>
-      <div class="card-row-container">
-        <div id="fails" class="card-row">
+    <section class="files-section">
+      <div class="files-container">
+        <h2>Files</h2>
+        <div class="card-row single-center">
           <div class="card">
             <div class="icon"><div class="icon-file"></div></div>
-            <h3>Title 1</h3>
-            <p>Short description of content</p>
-            <a href="fails.html" class="contact-btn">View</a>
-          </div>
-          <div class="card">
-            <div class="icon"><div class="icon-file"></div></div>
-            <h3>Title 2</h3>
-            <p>Short description of content</p>
-            <a href="fails.html" class="contact-btn">View</a>
-          </div>
-          <div class="card">
-            <div class="icon"><div class="icon-file"></div></div>
-            <h3>Title 3</h3>
-            <p>Short description of content</p>
-            <a href="fails.html" class="contact-btn">View</a>
-          </div>
-          <div class="card">
-            <div class="icon"><div class="icon-file"></div></div>
-            <h3>Title 4</h3>
-            <p>Short description of content</p>
-            <a href="fails.html" class="contact-btn">View</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- YouTube Section -->
-    <section>
-      <div class="row-header">
-        <h2>YouTube (4)</h2>
-        <div class="controls">
-          <button class="arrow-btn" data-target="youtube" data-dir="right"><div class="arrow-right"></div></button>
-          <button class="arrow-btn" data-target="youtube" data-dir="left"><div class="arrow-left"></div></button>
-        </div>
-      </div>
-      <div class="card-row-container">
-        <div id="youtube" class="card-row">
-          <div class="card">
-            <div class="icon"><div class="icon-play"></div></div>
-            <h3>Video Title 1</h3>
-            <p>Video description</p>
-            <a href="#" class="contact-btn">View</a>
-          </div>
-          <div class="card">
-            <div class="icon"><div class="icon-play"></div></div>
-            <h3>Video Title 2</h3>
-            <p>Video description</p>
-            <a href="#" class="contact-btn">View</a>
-          </div>
-          <div class="card">
-            <div class="icon"><div class="icon-play"></div></div>
-            <h3>Video Title 3</h3>
-            <p>Video description</p>
-            <a href="#" class="contact-btn">View</a>
-          </div>
-          <div class="card">
-            <div class="icon"><div class="icon-play"></div></div>
-            <h3>Video Title 4</h3>
-            <p>Video description</p>
+            <h3>File</h3>
+            <p>Single file content</p>
             <a href="#" class="contact-btn">View</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Google Section -->
     <section>
-      <div class="row-header">
-        <h2>Google (4)</h2>
-        <div class="controls">
-          <button class="arrow-btn" data-target="google" data-dir="right"><div class="arrow-right"></div></button>
-          <button class="arrow-btn" data-target="google" data-dir="left"><div class="arrow-left"></div></button>
+      <h2>YouTube</h2>
+      <div class="card-row five-cards">
+        <div class="card">
+          <div class="icon"><div class="icon-play"></div></div>
+          <h3>Video 1</h3>
+          <p>Video description</p>
+          <a href="#" class="contact-btn">View</a>
+        </div>
+        <div class="card">
+          <div class="icon"><div class="icon-play"></div></div>
+          <h3>Video 2</h3>
+          <p>Video description</p>
+          <a href="#" class="contact-btn">View</a>
+        </div>
+        <div class="card">
+          <div class="icon"><div class="icon-play"></div></div>
+          <h3>Video 3</h3>
+          <p>Video description</p>
+          <a href="#" class="contact-btn">View</a>
+        </div>
+        <div class="card">
+          <div class="icon"><div class="icon-play"></div></div>
+          <h3>Video 4</h3>
+          <p>Video description</p>
+          <a href="#" class="contact-btn">View</a>
+        </div>
+        <div class="card">
+          <div class="icon"><div class="icon-play"></div></div>
+          <h3>Video 5</h3>
+          <p>Video description</p>
+          <a href="#" class="contact-btn">View</a>
         </div>
       </div>
-      <div class="card-row-container">
-        <div id="google" class="card-row">
-          <div class="card">
-            <div class="icon"><div class="icon-search"></div></div>
-            <h3>Google Result 1</h3>
-            <p>Result description</p>
-            <a href="#" class="contact-btn">View</a>
-          </div>
-          <div class="card">
-            <div class="icon"><div class="icon-search"></div></div>
-            <h3>Google Result 2</h3>
-            <p>Result description</p>
-            <a href="#" class="contact-btn">View</a>
-          </div>
-          <div class="card">
-            <div class="icon"><div class="icon-search"></div></div>
-            <h3>Google Result 3</h3>
-            <p>Result description</p>
-            <a href="#" class="contact-btn">View</a>
-          </div>
-          <div class="card">
-            <div class="icon"><div class="icon-search"></div></div>
-            <h3>Google Result 4</h3>
-            <p>Result description</p>
-            <a href="#" class="contact-btn">View</a>
-          </div>
+    </section>
+
+    <section>
+      <h2>Google</h2>
+      <div class="card-row five-cards">
+        <div class="card">
+          <div class="icon"><div class="icon-search"></div></div>
+          <h3>Result 1</h3>
+          <p>Result description</p>
+          <a href="#" class="contact-btn">View</a>
+        </div>
+        <div class="card">
+          <div class="icon"><div class="icon-search"></div></div>
+          <h3>Result 2</h3>
+          <p>Result description</p>
+          <a href="#" class="contact-btn">View</a>
+        </div>
+        <div class="card">
+          <div class="icon"><div class="icon-search"></div></div>
+          <h3>Result 3</h3>
+          <p>Result description</p>
+          <a href="#" class="contact-btn">View</a>
+        </div>
+        <div class="card">
+          <div class="icon"><div class="icon-search"></div></div>
+          <h3>Result 4</h3>
+          <p>Result description</p>
+          <a href="#" class="contact-btn">View</a>
+        </div>
+        <div class="card">
+          <div class="icon"><div class="icon-search"></div></div>
+          <h3>Result 5</h3>
+          <p>Result description</p>
+          <a href="#" class="contact-btn">View</a>
         </div>
       </div>
     </section>
@@ -163,36 +129,5 @@
   <footer class="site-footer">
     <p>© 2025 Smart Educational Library</p>
   </footer>
-
-  <script>
-    const burgerBtn = document.getElementById('burgerBtn');
-    const navMenu = document.getElementById('navMenu');
-
-    burgerBtn.addEventListener('click', () => {
-      burgerBtn.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-
-    document.addEventListener('click', e => {
-      if (!burgerBtn.contains(e.target) && !navMenu.contains(e.target)) {
-        navMenu.classList.remove('active');
-        burgerBtn.classList.remove('active');
-      }
-    });
-
-    const sliders = {};
-    document.querySelectorAll(".arrow-btn").forEach(btn => {
-      const target = document.getElementById(btn.dataset.target);
-      if (!sliders[btn.dataset.target]) sliders[btn.dataset.target] = 0;
-      btn.addEventListener("click", () => {
-        const dir = btn.dataset.dir === "right" ? -216 : 216;
-        sliders[btn.dataset.target] += dir;
-        const maxMove = -648; // 3 moves right (216 * 3)
-        if (sliders[btn.dataset.target] < maxMove) sliders[btn.dataset.target] = 0;
-        if (sliders[btn.dataset.target] > 0) sliders[btn.dataset.target] = maxMove;
-        target.style.transform = `translateX(${sliders[btn.dataset.target]}px)`;
-      });
-    });
-  </script>
 </body>
 </html>

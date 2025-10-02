@@ -23,16 +23,18 @@
         </form>
       </div>
       <nav class="nav-right" id="navMenu">
+        <a class="btn-link" href="index.html">Sign Up</a>
+        <a class="btn-link" href="index2.html">Log In</a>
         <a class="home-btn" href="home.html" aria-label="Home">
           <svg viewBox="0 0 24 24">
             <path d="M12 3l9 7v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4H11v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10l9-7z"/>
           </svg>
         </a>
-        <a class="btn-link" href="index2.html">Log In</a>
-        <a class="btn-link" href="index.html">Sign Up</a>
       </nav>
       <button class="burger-menu" id="burgerBtn" aria-label="Menu">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
   </header>
@@ -59,10 +61,10 @@
   </main>
 
   <script>
-    document.getElementById('burgerBtn').addEventListener('click', function(){
+    document.getElementById('burgerBtn').onclick = function() {
       this.classList.toggle('active');
       document.getElementById('navMenu').classList.toggle('active');
-    });
+    };
   </script>
 </body>
 </html>

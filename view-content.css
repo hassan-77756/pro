@@ -510,28 +510,11 @@ body {
     flex-wrap: nowrap;
     justify-content: flex-start;
     padding: 8px 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .card-row::-webkit-scrollbar {
-    height: 6px;
-  }
-  
-  .card-row::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 3px;
-  }
-  
-  .card-row::-webkit-scrollbar-thumb {
-    background: var(--brand);
-    border-radius: 3px;
   }
   
   .card {
     min-width: 180px;
     width: 180px;
-    scroll-snap-align: center;
     padding: 16px;
   }
   

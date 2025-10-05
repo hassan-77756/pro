@@ -688,7 +688,7 @@ body {
     background: #e8e8e8;
   }
   
-  .home-btn {
+  .nav-right .home-btn {
     width: 56px;
     height: 56px;
     margin: 8px auto 0;
@@ -697,7 +697,7 @@ body {
     border-radius: 28px;
   }
   
-  .home-btn svg {
+  .nav-right .home-btn svg {
     width: 24px;
     height: 24px;
   }
@@ -848,8 +848,58 @@ body {
 }
 
 @media (max-width: 480px) {
-  .search-form { max-width: 160px; }
-  .search-input::placeholder { font-size: 11px; }
+  .header-inner {
+    padding: 8px 12px;
+  }
+  
+  .nav-right {
+    top: 55px;
+    width: 85%;
+    max-width: 350px;
+    padding: 16px;
+  }
+  
+  .btn-link {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+  
+  .nav-right .home-btn {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .search-form {
+    height: 34px;
+  }
+  
+  .search-button {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .search-button svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .search-input {
+    font-size: 13px;
+    padding: 0 10px;
+  }
+  
+  .search-input::placeholder {
+    font-size: 12px;
+  }
+  
+  .brand-logo-img {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .spacer {
+    height: 60px;
+  }
   
   .hero {
     padding: 6px;
